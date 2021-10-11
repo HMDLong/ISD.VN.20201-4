@@ -7,4 +7,4 @@ Group 4's repository for ISD.VN.20211's Capstone project.
 - Draw use case diagram for EcoBikeRental's system.
 - Each member make an outline for at least 1 use-case. 
 ## Contribution
-- Hoàng Mai Đức Long: drawn use case diagram, made outline for "Views dock information" use-case.
+- Hoàng Mai Đức Long: drew use case diagram, made outline for "Views dock information" use-case.
