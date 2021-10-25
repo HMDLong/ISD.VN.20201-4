@@ -2,6 +2,13 @@
 Group 4's repository for ISD.VN.20211's Capstone project.
 
 ---
+# LAB 03 - INTERACTION DIAGRAMS
+## Tasks
+- Each member is tasked to draw interaction diagrams(Sequence, Communication) for at least 1 use-case
+## Contributions
+- Hoàng Mai Đức Long: made interaction diagrams for UC "View Dock Information"
+
+---
 # LAB 02 - USE CASE SPECIFICATION
 ## Tasks
 - Each member is responsible for at least 1 use-case specification.
