@@ -7,7 +7,8 @@ Group 4's repository for ISD.VN.20211's Capstone project.
 - Each member is tasked to draw interaction diagrams(Sequence, Communication) for at least 1 use-case
 ## Contributions
 - Hoàng Mai Đức Long: made interaction diagrams for UC "View Dock Information"
-
+- Trần Đức Hiếu: made interaction diagrams for UC "Rent Bike"
+- Nguyẽn Viết Huy: made interaciton diagrams for UC "Return Bike"
 ## Revisions
 ## Other notes
 
