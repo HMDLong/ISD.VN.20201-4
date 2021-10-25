@@ -8,6 +8,9 @@ Group 4's repository for ISD.VN.20211's Capstone project.
 ## Contributions
 - Hoàng Mai Đức Long: made interaction diagrams for UC "View Dock Information"
 
+## Revisions
+## Other notes
+
 ---
 # LAB 02 - USE CASE SPECIFICATION
 ## Tasks
