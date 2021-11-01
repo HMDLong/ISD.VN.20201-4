@@ -2,6 +2,17 @@
 Group 4's repository for ISD.VN.20211's Capstone project.
 
 ---
+# LAB 04 - ANALYSIS CLASS DIAGRAM
+## Tasks
+- Each member is tasked to draw analysis class diagram for at least 1 use-case
+## Contributions
+- Hoàng Mai Đức Long: tasked with UC "View Dock Information"
+- Trần Đức Hiếu: tasked with UC "Rent Bike"
+- Nguyễn Viết Huy: tasked with UC "Return Bike"
+## Revisions
+## Other notes
+
+---
 # LAB 03 - INTERACTION DIAGRAMS
 ## Tasks
 - Each member is tasked to draw interaction diagrams(Sequence, Communication) for at least 1 use-case
