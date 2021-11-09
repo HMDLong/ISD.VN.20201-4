@@ -2,6 +2,18 @@
 Group 4's repository for ISD.VN.20211's Capstone project.
 
 ---
+# LAB 05 - INTERFACE DESIGN
+## Tasks:
+- Design Graphical User Interfaces for the project.
+- Design Interface to other system using Subsystem.
+## Contributions:
+- Hoàng Mai Đức Long: Interbank Subsystem design.
+- Trần Đức Hiếu: mockup screens design.
+- Nguyễn Viết Huy: screens specification.
+## Revisions
+## Other notes
+
+---
 # LAB 04 - ANALYSIS CLASS DIAGRAM
 ## Tasks
 - Each member is tasked to draw analysis class diagram for at least 1 use-case
