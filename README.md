@@ -2,11 +2,22 @@
 Group 4's repository for ISD.VN.20211's Capstone project.
 
 ---
+# LAB 06 - CLASS DESIGN
+## Tasks
+- Each members is responsible for the design of few classes in Capstone Project.
+## Contributions
+- Hoàng Mai Đức Long: ViewBikeController class, SearchBikeController class.
+- Trần Đức Hiếu: RentBikeController class.
+- Nguyễn Viết Huy:
+## Revisions
+## Other notes
+
+---
 # LAB 05 - INTERFACE DESIGN
-## Tasks:
+## Tasks
 - Design Graphical User Interfaces for the project.
 - Design Interface to other system using Subsystem.
-## Contributions:
+## Contributions
 - Hoàng Mai Đức Long: Interbank Subsystem design.
 - Trần Đức Hiếu: mockup screens design.
 - Nguyễn Viết Huy: screens specification.
