@@ -2,6 +2,18 @@
 Group 4's repository for ISD.VN.20211's Capstone project.
 
 ---
+# LAB 07 - DATA MODELLING
+## Tasks
+- Whole team design ER diagrams and schema for Capstone Project
+- Each member is asked to design a few tables in the schema
+## Contributions
+- Hoàng Mai Đức Long: 'docks', 'bike_in_dock', 'bikes' tables.
+- Trần Đức Hiếu: 'rental', 'payment' tables.
+- Nguyễn Viết Huy: 'payment_transaction', 'credit_cards' tables.
+## Revisions
+## Other notes
+
+---
 # LAB 06 - CLASS DESIGN
 ## Tasks
 - Each members is responsible for the design of few classes in Capstone Project.
