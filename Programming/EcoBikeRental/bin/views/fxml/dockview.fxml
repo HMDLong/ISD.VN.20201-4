@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.12453454695904015" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="485.0" prefWidth="727.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="48.0" prefWidth="726.0" style="-fx-background-color: #00cc00;">
+         <children>
+            <Label layoutX="7.0" layoutY="6.0" text="DOCK DETAILS" textFill="#fafafa">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="420.0" prefWidth="726.0">
+         <children>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+            <Label layoutX="325.0" layoutY="24.0" text="Dock 1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="64.0" text="Address: Tower A1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="88.0" text="Area: 200 m">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="325.0" layoutY="64.0" text="Available: 10">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="325.0" layoutY="88.0" text="Empty slots: 15">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="515.0" layoutY="64.0" text="Distance: 100 m">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="515.0" layoutY="90.0" text="Walking time: 5 min">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="34.0" layoutY="164.0" prefHeight="240.0" prefWidth="671.0">
+               <children>
+                  <ScrollBar layoutX="657.0" orientation="VERTICAL" prefHeight="240.0" prefWidth="14.0" />
+                  <Pane prefHeight="93.0" prefWidth="656.0" style="-fx-border-color: black;">
+                     <children>
+                        <Label layoutX="110.0" layoutY="14.0" text="Bike 1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="110.0" layoutY="47.0" text="Type: Standard bike" />
+                        <Label layoutX="262.0" layoutY="47.0" text="Deposit: VND 400.000" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="94.0" prefHeight="93.0" prefWidth="656.0" style="-fx-border-color: black;">
+                     <children>
+                        <Label layoutX="110.0" layoutY="14.0" text="Bike 2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="110.0" layoutY="47.0" text="Type: Standard E-bike" />
+                        <Label layoutX="262.0" layoutY="47.0" prefHeight="17.0" prefWidth="123.0" text="Deposit: VND 700.000" />
+                        <Label layoutX="418.0" layoutY="47.0" text="Battery: 80%" />
+                        <Label layoutX="518.0" layoutY="47.0" text="Remaining time: 06:00" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="188.0" prefHeight="93.0" prefWidth="656.0" style="-fx-border-color: black;">
+                     <children>
+                        <Label layoutX="110.0" layoutY="14.0" text="Bike 3">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="110.0" layoutY="47.0" text="Type: Twin bike" />
+                        <Label layoutX="262.0" layoutY="47.0" prefHeight="17.0" prefWidth="123.0" text="Deposit: VND 550.000" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <Label layoutX="317.0" layoutY="136.0" text="Available bikes">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

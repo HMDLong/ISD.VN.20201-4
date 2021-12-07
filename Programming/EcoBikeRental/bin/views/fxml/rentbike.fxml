@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.11208615875548465" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="561.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="48.0" prefWidth="599.0" style="-fx-background-color: #00cc00;">
+         <children>
+            <Label layoutX="14.0" layoutY="8.0" text="RENT BIKE" textFill="#fffdfd">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="472.0" prefWidth="765.0">
+         <children>
+            <TextField layoutX="361.0" layoutY="39.0" prefHeight="26.0" prefWidth="203.0" text="1234ABCD" />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+            <Button layoutX="373.0" layoutY="441.0" mnemonicParsing="false" text="Confirm" />
+            <Label layoutX="236.0" layoutY="39.0" text="Enter bikecode">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <RadioButton layoutX="147.0" layoutY="126.0" mnemonicParsing="false" selected="true" text="Standard" />
+            <RadioButton layoutX="549.0" layoutY="126.0" mnemonicParsing="false" text="24-hour pass" />
+            <Label layoutX="48.0" layoutY="156.0" text="- For journey under 10 mitnutes, you are free of charge." />
+            <Label layoutX="48.0" layoutY="182.0" text="- The first 30 minutes: VND 10.000" />
+            <Label layoutX="47.0" layoutY="211.0" text="- After 30 minutes, for each 15 minutes: VND 3.000" />
+            <Label layoutX="473.0" layoutY="156.0" text="- You are offered VND 200.000 for 24 hours" />
+            <Label layoutX="473.0" layoutY="180.0" prefHeight="38.0" prefWidth="294.0" text="- When you return early (before 24 hours), you will be refunded VND 10.000 per hour early" wrapText="true" />
+            <Label layoutX="473.0" layoutY="218.0" prefHeight="46.0" prefWidth="294.0" text="- When you return late (after 24 hours), you have to pay additional VND 2000 for each 15 minutes late" wrapText="true" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff511f" height="26.0" layoutX="277.0" layoutY="339.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
+            <Circle fill="#e39812" layoutX="280.0" layoutY="379.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="297.0" layoutY="339.0" prefHeight="46.0" prefWidth="294.0" text="You need to make a deposit equal to 40% of the bike you want to rent. Press confirm to start deposit." wrapText="true" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
