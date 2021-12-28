@@ -5,6 +5,7 @@ import java.util.Hashtable;
 
 import controller.BaseController;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
 import javafx.stage.Stage;
 import views.screens.BaseScreenHandler;
 import views.screens.home.HomeScreenHandler;
@@ -16,10 +17,16 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 	protected HomeScreenHandler homeScreenHandler;
 	protected Hashtable<String, String> messages;
 	private BaseController bController;
+	protected SplitPane content;
 
 	private BaseScreenHandler(String screenPath) throws IOException {
 		super(screenPath);
 		this.stage = new Stage();
+		this.content = (SplitPane) (getLoader().load());
+	}
+	
+	public SplitPane getContent() {
+		return this.content;
 	}
 
 	public void setPreviousScreen(BaseScreenHandler prev) {
@@ -33,6 +40,7 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 	public BaseScreenHandler(Stage stage, String screenPath) throws IOException {
 		super(screenPath);
 		this.stage = stage;
+		this.content = (SplitPane) (getLoader().load());
 	}
 
 	public void show() {

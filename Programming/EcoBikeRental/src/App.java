@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import utils.Configs;
+import views.screens.home.HomeScreenHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
@@ -33,10 +34,8 @@ public class App extends Application {
 		fadeOut.setCycleCount(1);
 		fadeOut.setOnFinished(e -> {
 			try {
-				SplitPane home = (SplitPane) FXMLLoader.load(getClass().getResource(Configs.HOME_SCREEN_PATH));
-				Scene homeScene = new Scene(home);
-				primaryStage.setScene(homeScene);
-				primaryStage.show();
+				HomeScreenHandler homeScreen = new HomeScreenHandler(primaryStage, Configs.HOME_SCREEN_PATH);
+				homeScreen.show();
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
@@ -48,5 +47,8 @@ public class App extends Application {
 			fadeOut.play();
 		});
 	}
-
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
 }
