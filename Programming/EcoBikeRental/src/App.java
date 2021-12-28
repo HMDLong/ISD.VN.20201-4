@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import controller.HomeController;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +36,7 @@ public class App extends Application {
 		fadeOut.setOnFinished(e -> {
 			try {
 				HomeScreenHandler homeScreen = new HomeScreenHandler(primaryStage, Configs.HOME_SCREEN_PATH);
+				homeScreen.setBaseController(new HomeController());
 				homeScreen.show();
 			} catch (IOException e1) {
 				e1.printStackTrace();
