@@ -1,14 +1,21 @@
 package controller.search;
 
+import java.util.ArrayList;
+
 import common.exception.InvalidSearchKeyException;
 import entity.dock.Dock;
 
 public class SearchDockNameController extends SearchDockController {
   
   @Override
-  public Dock searchDock(String name) throws InvalidSearchKeyException {
+  public ArrayList<Dock> searchDock(String name) throws InvalidSearchKeyException {
     validateSearchKey(name);
-    // search here
-    return null;
+    ArrayList<Dock> result = new ArrayList<>();
+    for(Dock dock : Dock.getAllDocks()) {
+    	if(dock.getName().equals(name)) {
+    		result.add(dock);
+    	}
+    }
+    return result;
   }
 }

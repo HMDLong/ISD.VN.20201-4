@@ -54,6 +54,7 @@
                                               <MenuItem fx:id="searchByAddress" mnemonicParsing="false" text="By Address" />
                                             </items>
                                           </MenuButton>
+                                          <Button fx:id="clearBtn" layoutX="448.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="43.0" text="Clear" />
                                        </children>
                                     </AnchorPane>
                                     <ScrollPane hbarPolicy="NEVER" hmax="0.0" layoutX="18.0" layoutY="57.0" prefHeight="454.0" prefWidth="714.0" vbarPolicy="ALWAYS" vmax="2.0">

@@ -26,9 +26,9 @@ import views.screens.BaseScreenHandler;
 import views.screens.rent.RentHandler;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
-  // get all fxml elements here
+  // get all FXML elements here
   @FXML
-  private Button rentBikeBtn;
+  private Button rentBikeBtn, returnBikeBtn, searchBtn, clearBtn;
 
   @FXML
   private VBox dockListVBox;
@@ -37,21 +37,14 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
   private MenuButton searchByMenuBtn;
   
   @FXML
-  private MenuItem searchByName;
-  
-  @FXML
-  private MenuItem searchByAddress;
-  
-  @FXML
-  private Button searchBtn;
+  private MenuItem searchByName, searchByAddress;
   
   @FXML
   private TextField searchField;
 
-  private ArrayList<Dock> docklist;
-
   @Override
   public void initialize(URL url, ResourceBundle bundle) {
+	
     rentBikeBtn.setOnMouseClicked(e -> {
       RentHandler rentScreen;
       try {
@@ -81,7 +74,8 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     searchBtn.setOnMouseClicked(e -> {
     	try {
     		HomeController homeCtrl = (HomeController) this.getBaseController();
-    		Dock result = homeCtrl.search(searchField.getText());
+    		ArrayList<Dock> result = homeCtrl.search(searchField.getText());
+    		showDockList(result);
     	} catch(InvalidSearchKeyException ex) {
     		System.out.println(ex.getMessage());
     	} catch(NoResultException ex) {
@@ -92,8 +86,13 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     	}
     });
     
-    this.docklist = Dock.getAllDocks();
-    showDockList();
+    clearBtn.setOnMouseClicked(e -> {
+    	showAllDocks();
+    	searchField.clear();
+    });
+    
+    
+    showAllDocks();
   }
 
   public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
@@ -104,12 +103,16 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
   public void show() {
     super.show();
   }
+  
+  private void showAllDocks() {
+	  showDockList(Dock.getAllDocks());
+  }
 
-  private void showDockList() {
+  private void showDockList(ArrayList<Dock> docks) {
     dockListVBox.getChildren().clear();
     try {
-      for (Dock dock : this.docklist) {
-        DockHandler handler = new DockHandler(Configs.DOCK_PATH);
+      for (Dock dock : docks) {
+        DockHandler handler = new DockHandler(Configs.DOCK_PATH, this);
         handler.setDock(dock);
         dockListVBox.getChildren().add(handler.getContent());
       }

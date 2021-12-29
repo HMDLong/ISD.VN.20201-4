@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import common.exception.InvalidSearchKeyException;
 import common.exception.NoResultException;
 import controller.search.SearchDockController;
@@ -20,12 +22,12 @@ public class HomeController extends BaseController {
    * This method search for a dock match user key.
    *
    * @param key the search key user enter
-   * @return Dock the matching dock if there is any
+   * @return ArrayList<Dock> list of the matching dock if there is any
    * @throws InvalidSearchKeyException if user input blank key
    * @throws NoResultException if there is no matching dock found
    */
-  public Dock search(String key) throws InvalidSearchKeyException, NoResultException {
-	  Dock result = this.searchController.searchDock(key);
+  public ArrayList<Dock> search(String key) throws InvalidSearchKeyException, NoResultException {
+	  ArrayList<Dock> result = this.searchController.searchDock(key);
 	  return result;
   }
 }

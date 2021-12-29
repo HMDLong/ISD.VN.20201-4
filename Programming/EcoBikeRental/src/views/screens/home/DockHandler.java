@@ -6,7 +6,6 @@ import common.exception.EmptyDockException;
 import controller.ViewBikeController;
 import entity.dock.Dock;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 //import javafx.scene.control.SplitPane;
@@ -30,14 +29,14 @@ public class DockHandler extends FXMLScreenHandler{
   @FXML
   private Button viewBikeBtn;
   
-  //private HomeScreenHandler dockScreen;
+  private HomeScreenHandler dockScreen;
   private Dock dock;
   private Pane content;
   
-  public DockHandler(String screenPath/*, HomeScreenHandler homeScreen*/) throws IOException {
+  public DockHandler(String screenPath, HomeScreenHandler homeScreen) throws IOException {
       super(screenPath);
       this.content = (Pane) this.getLoader().load();
-      //this.dockScreen = homeScreen;
+      this.dockScreen = homeScreen;
   }
 
   public Pane getContent() {
