@@ -2,7 +2,6 @@ package views.screens;
 
 import java.io.File;
 import java.io.IOException;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

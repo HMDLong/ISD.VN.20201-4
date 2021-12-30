@@ -22,15 +22,15 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="472.0" prefWidth="765.0">
          <children>
-            <TextField layoutX="361.0" layoutY="39.0" prefHeight="26.0" prefWidth="203.0" text="1234ABCD" />
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
-            <Button layoutX="373.0" layoutY="441.0" mnemonicParsing="false" text="Confirm" />
+            <TextField fx:id="bikecodeField" layoutX="361.0" layoutY="39.0" prefHeight="26.0" prefWidth="203.0" text="1234ABCD" />
+            <Button fx:id="rentBackBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+            <Button fx:id="confirmBtn" layoutX="373.0" layoutY="441.0" mnemonicParsing="false" text="Confirm" />
             <Label layoutX="236.0" layoutY="39.0" text="Enter bikecode">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <RadioButton layoutX="147.0" layoutY="126.0" mnemonicParsing="false" selected="true" text="Standard" />
-            <RadioButton layoutX="549.0" layoutY="126.0" mnemonicParsing="false" text="24-hour pass" />
+            <RadioButton fx:id="StdRentRadio" layoutX="147.0" layoutY="126.0" mnemonicParsing="false" selected="true" text="Standard" />
+            <RadioButton fx:id="dayRentRadio" layoutX="549.0" layoutY="126.0" mnemonicParsing="false" text="24-hour pass" />
             <Label layoutX="48.0" layoutY="156.0" text="- For journey under 10 mitnutes, you are free of charge." />
             <Label layoutX="48.0" layoutY="182.0" text="- The first 30 minutes: VND 10.000" />
             <Label layoutX="47.0" layoutY="211.0" text="- After 30 minutes, for each 15 minutes: VND 3.000" />
