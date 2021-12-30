@@ -8,9 +8,9 @@ import entity.dock.Dock;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-//import javafx.scene.control.SplitPane;
 import javafx.scene.layout.Pane;
-//import views.screens.FXMLScreenHandler;
+import utils.Configs;
+import views.screens.DockMenuHandler;
 import views.screens.FXMLScreenHandler;
 
 public class DockHandler extends FXMLScreenHandler{
@@ -28,6 +28,9 @@ public class DockHandler extends FXMLScreenHandler{
   
   @FXML
   private Button viewBikeBtn;
+  
+  @FXML
+  private Button returnBtn;
   
   private HomeScreenHandler dockScreen;
   private Dock dock;
@@ -51,14 +54,12 @@ public class DockHandler extends FXMLScreenHandler{
   public void displayDock() {
     this.dockNameLabel.setText(dock.getName());
     this.addressLabel.setText("Address: " + dock.getAddress());
-    this.emptySlotLabel.setText("Empty: " + 10);
-    this.availableLabel.setText("Available: " + 8);
+    this.emptySlotLabel.setText("Empty: " + (dock.getMaxSlot() - dock.getAvaiSlot()));
+    this.availableLabel.setText("Available: " + dock.getAvaiSlot());
     this.viewBikeBtn.setOnMouseClicked(e -> {
       try {
-        ViewBikeController viewBikeCtrl = new ViewBikeController();
-        viewBikeCtrl.requestViewBikes(this.dock);
-      } catch(EmptyDockException ex) {
-        
+        DockMenuHandler dockMenu = new DockMenuHandler(dockScreen.getStage(), Configs.DOCK_MENU_PATH, this.dock);
+        dockMenu.show();
       } catch(Exception ex) {
         
       }

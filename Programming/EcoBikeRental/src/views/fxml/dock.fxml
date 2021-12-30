@@ -15,7 +15,7 @@
       <Label fx:id="addressLabel" layoutX="14.0" layoutY="50.0" text="Address: Tower A1" />
       <Label fx:id="availableLabel" layoutX="153.0" layoutY="27.0" text="Available: 15" />
       <Label fx:id="emptySlotLabel" layoutX="153.0" layoutY="58.0" text="Empty slots: 10" />
-      <Button fx:id="viewBikeBtn" layoutX="552.0" layoutY="33.0" mnemonicParsing="false" text="View Bikes" />
+      <Button fx:id="viewBikeBtn" layoutX="552.0" layoutY="33.0" mnemonicParsing="false" text="To Dock" />
       <Label fx:id="areaLabel" layoutX="273.0" layoutY="27.0" prefHeight="17.0" prefWidth="88.0" text="Area: 500m2" />
       <Label fx:id="walktimeLabel" layoutX="273.0" layoutY="58.0" text="Walking time: 10min" />
    </children>
