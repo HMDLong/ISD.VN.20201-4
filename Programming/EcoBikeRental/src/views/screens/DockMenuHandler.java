@@ -12,6 +12,7 @@ import entity.dock.Dock;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screens.viewbike.ViewBikeHandler;
@@ -21,7 +22,8 @@ public class DockMenuHandler extends BaseScreenHandler implements Initializable{
 	@FXML
 	private Button dockBackBtn, returnBtn, rentBtn, viewBikeBtn;
 	
-	
+	@FXML
+	private Label dockAddressLabel, dockAreaLabel, distanceLabel, walktimeLabel, dockNameLabel;
 	
 	private Dock dock;
 	
@@ -32,6 +34,10 @@ public class DockMenuHandler extends BaseScreenHandler implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		this.dockAddressLabel.setText(this.dock.getAddress());
+		this.dockAreaLabel.setText("" + this.dock.getArea());
+		this.distanceLabel.setText("100m");
+		this.walktimeLabel.setText("10 min");
 		dockBackBtn.setOnMouseClicked(e -> {
 			this.getPreviousScreen().show();
 		});

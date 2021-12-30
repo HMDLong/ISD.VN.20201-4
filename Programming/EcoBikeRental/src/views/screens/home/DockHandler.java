@@ -33,14 +33,14 @@ public class DockHandler extends FXMLScreenHandler {
   @FXML
   private Button returnBtn;
   
-  private HomeScreenHandler dockScreen;
+  private HomeScreenHandler homeScreen;
   private Dock dock;
   private Pane content;
   
   public DockHandler(String screenPath, HomeScreenHandler homeScreen) throws IOException {
       super(screenPath);
       this.content = (Pane) this.getLoader().load();
-      this.dockScreen = homeScreen;
+      this.homeScreen = homeScreen;
   }
 
   public Pane getContent() {
@@ -59,8 +59,9 @@ public class DockHandler extends FXMLScreenHandler {
     this.availableLabel.setText("Available: " + dock.getAvaiSlot());
     this.viewBikeBtn.setOnMouseClicked(e -> {
       try {
-        DockMenuHandler dockMenu = new DockMenuHandler(dockScreen.getStage(), Configs.DOCK_MENU_PATH, this.dock);
-        dockMenu.setPreviousScreen(this.dockScreen);
+        DockMenuHandler dockMenu = new DockMenuHandler(homeScreen.getStage(), Configs.DOCK_MENU_PATH, this.dock);
+        dockMenu.setPreviousScreen(this.homeScreen);
+        dockMenu.setHomeScreenHandler(this.homeScreen);
         dockMenu.show();
       } catch(Exception ex) {
         

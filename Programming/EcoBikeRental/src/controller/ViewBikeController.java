@@ -13,10 +13,11 @@ public class ViewBikeController extends BaseController {
 	  
   public ArrayList<Bike> requestViewBikes(Dock dock) throws EmptyDockException {
     // TODO
-    ArrayList<Bike> bikelist = dock.getBikes();
-    if(bikelist.size() == 0) {
-      throw new EmptyDockException("No bikes in the dock");
-    }
-    return bikelist;
+//    ArrayList<Bike> bikelist = dock.getBikes();
+//    if(bikelist.size() == 0) {
+//      throw new EmptyDockException("No bikes in the dock");
+//    }
+//    return bikelist;
+	  return null;
   }
 }

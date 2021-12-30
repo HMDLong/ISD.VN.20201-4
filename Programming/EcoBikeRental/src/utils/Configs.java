@@ -8,6 +8,8 @@ public class Configs {
 	public static final String RETURN_SCREEN_PATH = "/views/fxml/return.fxml";
 	public static final String PAYMENT_SCREEN_PATH = "/views/fxml/payment.fxml";
 	public static final String DOCK_PATH = "/views/fxml/dock.fxml";
-	public static final String VIEW_BIKES_PATH = "/views/fxml/viewbikes.fxml";
+	public static final String VIEW_BIKES_PATH = "/views/fxml/bikeview.fxml";
 	public static final String DOCK_MENU_PATH = "/views/fxml/dockview.fxml";
+	public static final String E_BIKE_PATH = "/views/fxml/ebike.fxml";
+	public static final String STD_BIKE_PATH = "/views/fxml/standardbike.fxml";
 }
