@@ -1,11 +1,12 @@
 package views.screens.home;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-import common.exception.EmptyDockException;
-import controller.ViewBikeController;
 import entity.dock.Dock;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -13,7 +14,7 @@ import utils.Configs;
 import views.screens.DockMenuHandler;
 import views.screens.FXMLScreenHandler;
 
-public class DockHandler extends FXMLScreenHandler{
+public class DockHandler extends FXMLScreenHandler {
   @FXML
   private Label dockNameLabel;
   
@@ -43,7 +44,7 @@ public class DockHandler extends FXMLScreenHandler{
   }
 
   public Pane getContent() {
-      return this.content;
+    return this.content;
   }
   
   public void setDock(Dock dock) {
@@ -59,6 +60,7 @@ public class DockHandler extends FXMLScreenHandler{
     this.viewBikeBtn.setOnMouseClicked(e -> {
       try {
         DockMenuHandler dockMenu = new DockMenuHandler(dockScreen.getStage(), Configs.DOCK_MENU_PATH, this.dock);
+        dockMenu.setPreviousScreen(this.dockScreen);
         dockMenu.show();
       } catch(Exception ex) {
         

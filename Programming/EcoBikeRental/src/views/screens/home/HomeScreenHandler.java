@@ -28,7 +28,7 @@ import views.screens.rent.RentHandler;
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
   // get all FXML elements here
   @FXML
-  private Button rentBikeBtn, returnBikeBtn, searchBtn, clearBtn;
+  private Button searchBtn, clearBtn;
 
   @FXML
   private VBox dockListVBox;
@@ -44,19 +44,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 
   @Override
   public void initialize(URL url, ResourceBundle bundle) {
-	
-    rentBikeBtn.setOnMouseClicked(e -> {
-      RentHandler rentScreen;
-      try {
-        rentScreen = new RentHandler(this.stage, Configs.RENT_SCREEN_PATH);
-        rentScreen.setHomeScreenHandler(this);
-        rentScreen.setBaseController(new RentBikeController());
-        rentScreen.show();
-      } catch (IOException e1) {
-        e1.printStackTrace();
-      }
-    });
-    
     searchByName.setOnAction(e -> {
     	searchByMenuBtn.setText(searchByName.getText());
     	HomeController homeCtrl = (HomeController) this.getBaseController();
@@ -90,7 +77,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     	showAllDocks();
     	searchField.clear();
     });
-    
     
     showAllDocks();
   }
