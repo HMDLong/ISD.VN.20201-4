@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import utils.Configs;
 import views.screens.BaseScreenHandler;
 
 public class RentHandler extends BaseScreenHandler implements Initializable {
@@ -34,7 +35,13 @@ public class RentHandler extends BaseScreenHandler implements Initializable {
 		});
 		
 		this.confirmBtn.setOnMouseClicked(e -> {
-			
+			try {
+				DepositHandler depositScreen = new DepositHandler(this.stage, Configs.DEPOSIT_PATH);
+				depositScreen.setPreviousScreen(this);
+				depositScreen.show();
+			} catch(Exception ex) {
+				System.out.println("Something happened!!");
+			}
 		});
 		
 		this.stdRentRadio.setOnMouseClicked(e -> {

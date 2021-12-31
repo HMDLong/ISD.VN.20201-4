@@ -61,7 +61,6 @@ public class DockHandler extends FXMLScreenHandler {
       try {
         DockMenuHandler dockMenu = new DockMenuHandler(this.homeScreen.getStage(), Configs.DOCK_MENU_PATH, this.dock);
         dockMenu.setPreviousScreen(this.homeScreen);
-        dockMenu.setHomeScreenHandler(this.homeScreen);
         dockMenu.show();
       } catch(Exception ex) {
         ex.printStackTrace();
