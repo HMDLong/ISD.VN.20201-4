@@ -5,10 +5,15 @@ import java.util.ArrayList;
 import common.exception.InvalidSearchKeyException;
 import common.exception.NoResultException;
 import controller.search.SearchDockController;
+import controller.search.SearchDockNameController;
 import entity.dock.Dock;
 
 public class HomeController extends BaseController {
   private SearchDockController searchController;
+  
+  public HomeController() {
+	  this.searchController = new SearchDockNameController(); // set default search mode = by name
+  }
   
   /**
    * 

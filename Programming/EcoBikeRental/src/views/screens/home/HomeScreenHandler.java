@@ -83,6 +83,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 
   public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
     super(stage, screenPath);
+    this.setHomeScreenHandler(this);
   }
 
   @Override

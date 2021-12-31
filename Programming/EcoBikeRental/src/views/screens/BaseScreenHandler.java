@@ -14,7 +14,7 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 	private Scene scene;
 	private BaseScreenHandler prev;
 	protected final Stage stage;
-	protected HomeScreenHandler homeScreenHandler;
+	protected static HomeScreenHandler homeScreenHandler;
 	protected Hashtable<String, String> messages;
 	private BaseController bController;
 	protected SplitPane content;
@@ -68,7 +68,8 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 	}
 
 	public void setHomeScreenHandler(HomeScreenHandler HomeScreenHandler) {
-		this.homeScreenHandler = HomeScreenHandler;
+		if(homeScreenHandler != null) return;
+		homeScreenHandler = HomeScreenHandler;
 	}
 	
 	public Stage getStage() {

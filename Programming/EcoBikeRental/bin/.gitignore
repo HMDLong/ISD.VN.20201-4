@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /controller/
 /common/
 /subsystem/
@@ -5,3 +6,10 @@
 /entity/
 /caculateMoney/
 /caculatefee/
+=======
+/views/
+/utils/
+/controller/
+/factory/
+/entity/
+>>>>>>> programming

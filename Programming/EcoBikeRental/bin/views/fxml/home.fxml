@@ -41,7 +41,7 @@
                                        <children>
                                           <TextField fx:id="searchField" layoutX="272.0" layoutY="10.0" prefHeight="30.0" prefWidth="291.0" />
                                           <Button fx:id="searchBtn" layoutX="572.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="63.0" text="Search" />
-                                          <MenuButton fx:id="searchByMenuBtn" layoutX="645.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="91.0" text="Search By">
+                                          <MenuButton fx:id="searchByMenuBtn" layoutX="645.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="91.0" text="By Name">
                                             <items>
                                               <MenuItem fx:id="searchByName" mnemonicParsing="false" text="By Name" />
                                               <MenuItem fx:id="searchByAddress" mnemonicParsing="false" text="By Address" />
