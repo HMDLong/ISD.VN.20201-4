@@ -46,8 +46,9 @@ public class DockMenuHandler extends BaseScreenHandler implements Initializable{
 		});
 		
 		returnBtn.setOnMouseClicked(e -> {
-			
-		});
+
+			}
+		);
 		
 		rentBtn.setOnMouseClicked(e -> {
 			RentBikeController rentCtrl = new RentBikeController();
