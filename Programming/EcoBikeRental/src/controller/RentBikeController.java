@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Date;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -7,14 +8,14 @@ import caculatefee.CaculateFeeInterface;
 import caculatefee.CaculateFeeV1;
 import entity.bike.Bike;
 import entity.dock.Dock;
+import entity.invoice.Invoice;
 import entity.payment.CreditCard;
-import entity.rental.Rental;
 
 public class RentBikeController extends BaseController 	
 {
 	private Dock currentDock;
 	private PaymentController payctl ;
-	private Rental rental;
+	private Invoice invoice;
 	
 	public Dock getCurrentDock() 
 	{
@@ -31,17 +32,19 @@ public class RentBikeController extends BaseController
 			String expirationDate, String securityCode) 
 	{
 		
+		invoice = Invoice.getRentInvoice();
+		int depositMoney = invoice.getDepositFee();
 		
 		payctl  = new PaymentController();
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "RENT FAILED!");
-		
-		CaculateFeeInterface caculator = new CaculateFeeV1();
-		int depositMoney = caculator.caculateDepositFee(bike);
+				
 		Map<String, String> announce = payctl.requestToPay("DEPOSIT FEE" ,depositMoney, cardNumber, cardHolderName, expirationDate, securityCode);
 		if (announce.get("RESULT").equals("PAYMENT SUCCESSFUL!")) {
+			invoice.setStartTime(new Date());
+			invoice.setStatus(1);
+			invoice.setDepositFee(depositMoney);
 			currentDock.rentBikeFromDock(bike);
-			
 			result.put("RESULT", "RENT SUCCESSFUL");
 		}
 		result.put("RESULT", announce.get("MESSAGE"));
@@ -49,10 +52,21 @@ public class RentBikeController extends BaseController
 		return result;
 	}
 	
-	public Bike getBikeInfo(String bikeCode) 
-	{
+	public Map<String, String> getBikeInfo(String bikeCode) {
+		Map<String, String> result = null ;
 		Bike bike = currentDock.getBike(bikeCode);
-		return bike;
+		if (bike != null) {
+			invoice.setBike(bike);
+			invoice.getRentInfor();
+			result = bike.getBikeInfo();
+			result.put("RESULT", "SUCESSFULL");
+			result.put("RENTINFO", bikeCode);
+		}
+		else {
+			result = new Hashtable<String, String>();
+			result.put("RESULT", "BIKE NOT AVAILBLE");
+		}
+		return result;
 	}
 	
 	public String convertBarcodeToBikecode(String barcode)

@@ -108,8 +108,7 @@ public class PaymentController extends BaseController {
 					getExpirationDate(expirationDate));
 	
 			this.interbank = new InterbankSubsystem();
-			PaymentTransaction transaction = interbank.makeDeposit(card, amount, content);
-	
+			PaymentTransaction transaction = interbank.pay(card, amount, content);
 			result.put("RESULT", "PAYMENT SUCCESSFUL!");
 			result.put("MESSAGE", "You have succesffully paid the order!");
 		} catch (PaymentException | UnrecognizedException ex) {

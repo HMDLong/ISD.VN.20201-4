@@ -1,11 +1,13 @@
 package entity.bike;
 
+import java.util.Hashtable;
+import java.util.Map;
+
 public class Bike {
 	private String bikeType;
 	private boolean status;
 	private String bikeCode;
 	private String imageURL;
-	private int price;
 	
 	public String getBikeType() {
 		return bikeType;
@@ -31,11 +33,13 @@ public class Bike {
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
 	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
+	
+	public  Map<String, String> getBikeInfo(){
+		Map<String, String> info = new Hashtable<String, String>();
+		info.put("TYPE", bikeType);
+		info.put("BIKECODE", bikeCode);
+		info.put("IMAGE_URL", imageURL);
+		return info;
 	}
 	
 }
