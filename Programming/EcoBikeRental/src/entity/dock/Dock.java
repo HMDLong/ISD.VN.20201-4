@@ -11,6 +11,8 @@ public class Dock {
 	  private int maxSlot;
 	  private int avaiSlot;
 	  private int area;
+	  private static ArrayList<Dock> docklist;
+	  
 	  
 	  public Dock(int id, String address, String name, int maxSlot, int availSlot, int area) {
 	    this.id = id;
@@ -22,13 +24,15 @@ public class Dock {
 	  }
 	  
 	  public static ArrayList<Dock> getAllDocks(){
-	    ArrayList<Dock> docklist = new ArrayList<>();
-	    docklist.add(new Dock(1, "Tower A1", "Dock 1", 20, 10, 200));
-		docklist.add(new Dock(2, "Tower A2", "Dock 2", 10, 5, 100));
-		docklist.add(new Dock(3, "Tower B3", "Dock 3", 15, 15, 200));
-		docklist.add(new Dock(4, "Tower C4", "Dock 4", 15, 15, 200));
-		docklist.add(new Dock(5, "Tower C5", "Dock 5", 15, 15, 200));
-		docklist.add(new Dock(6, "Tower D3", "Dock 6", 15, 15, 200));
+		if(docklist == null) {
+		    docklist = new ArrayList<>();
+		    docklist.add(new Dock(1, "Tower A1", "Dock 1", 20, 10, 200));
+			docklist.add(new Dock(2, "Tower A2", "Dock 2", 10, 5, 100));
+			docklist.add(new Dock(3, "Tower B3", "Dock 3", 15, 15, 200));
+			docklist.add(new Dock(4, "Tower C4", "Dock 4", 15, 15, 200));
+			docklist.add(new Dock(5, "Tower C5", "Dock 5", 15, 15, 200));
+			docklist.add(new Dock(6, "Tower D3", "Dock 6", 15, 15, 200));
+		}
 	    return docklist;
 	  }
 	  
@@ -36,8 +40,18 @@ public class Dock {
 	    return new ArrayList<Bike>();
 	  }
 	  
+	  
+	  
+	  public boolean isFull() {
+		return this.getMaxSlot()==this.getAvaiSlot();
+	}
+	  
+	  
+	  
 	  //----------Set get------------------
 	
+	  
+	  
 	  public int getId() {
 	    return id;
 	  }
@@ -65,4 +79,21 @@ public class Dock {
 	  public int getArea() {
 	    return area;
 	  }
+	  
+	  
+	  public boolean returnBikeInDock(Bike bike) {
+		 
+		  return true;
+	  } 
+	  
+	  public boolean rentBikeFromDock(Bike bike) {
+		  
+		  return true;
+	  }
+	  
+	  public Bike getBike(String bikecode) {
+		  return new Bike();
+	  }
+	  
+	  
 }
