@@ -3,6 +3,7 @@ package entity.dock;
 import java.util.ArrayList;
 
 import entity.bike.Bike;
+import entity.bike.Ebike;
 
 public class Dock {
 	  private int id;
@@ -92,7 +93,13 @@ public class Dock {
 	  }
 	  
 	  public Bike getBike(String bikecode) {
-		  return new Bike();
+		  Ebike bike = new Ebike();
+		  bike.setBikeType("Bike");
+		  bike.setBikeCode("2222");
+		  bike.setStatus(true);
+		  bike.setImageURL("Url");
+		  bike.setBattery(100);
+		  return bike;
 	  }
 	  
 	  

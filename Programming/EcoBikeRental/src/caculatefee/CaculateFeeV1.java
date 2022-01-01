@@ -5,17 +5,23 @@ import entity.bike.Bike;
 public class CaculateFeeV1 implements CaculateFeeInterface {
 
 	@Override
-	public int caculateDepositFee(Bike bike) {
+	public int caculateDepositFee(String bike) {
 		// TODO Auto-generated method stub
-		int fee = (int) ((int) bike.getPrice()*0.4);
-		return fee;
+		return 400000;
 	}
 
 	@Override
-	public int caculateRentFee(Bike bike , float rentTime) {
+	public int caculateRentFee(String bike , float rentTime) {
 		// TODO Auto-generated method stub
 		int fee = (int)rentTime*10000;
 		return fee;
 	}
+
+	@Override
+	public String getWayCalculateFee(String bike) {
+		return "duoi 10 phut ban duoc mien phi, 10000/h, ban phai dat coc 400,000.0 VND de thue xe";
+	}
+	
+	
 
 }

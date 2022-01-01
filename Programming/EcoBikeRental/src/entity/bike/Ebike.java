@@ -1,5 +1,7 @@
 package entity.bike;
 
+import java.util.Map;
+
 public class Ebike extends Bike {
 	private int battery;
 
@@ -17,5 +19,11 @@ public class Ebike extends Bike {
 		this.battery = battery;
 	}
 	
+	public  Map<String, String> getBikeInfo(){
+		Map<String, String> info = super.getBikeInfo();
+		info.put("BATTERY", Integer.toString(battery));
+		return info;
+		
+	}
 	
 }

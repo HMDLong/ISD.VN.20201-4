@@ -7,9 +7,11 @@ import java.util.ResourceBundle;
 
 import common.exception.EmptyDockException;
 import controller.RentBikeController;
+import controller.ReturnBikeController;
 import controller.ViewBikeController;
 import entity.bike.Bike;
 import entity.dock.Dock;
+import entity.invoice.Invoice;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -17,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screens.rent.RentHandler;
+import views.screens.returnBike.ReturnBikeHandler;
 import views.screens.viewbike.ViewBikeHandler;
 
 public class DockMenuHandler extends BaseScreenHandler implements Initializable{
@@ -46,7 +49,15 @@ public class DockMenuHandler extends BaseScreenHandler implements Initializable{
 		});
 		
 		returnBtn.setOnMouseClicked(e -> {
-
+			ReturnBikeController returnctrl = new ReturnBikeController();
+			try {
+				ReturnBikeHandler returnScreen = new ReturnBikeHandler(this.stage, Configs.RETURN_SCREEN_PATH, this.dock);
+				returnScreen.setPreviousScreen(this);
+				returnScreen.setBaseController(returnctrl);
+				returnScreen.show();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 			}
 		);
 		
@@ -54,7 +65,7 @@ public class DockMenuHandler extends BaseScreenHandler implements Initializable{
 			RentBikeController rentCtrl = new RentBikeController();
 			// do something if necessary here
 			try {
-				RentHandler rentScreen = new RentHandler(this.stage, Configs.RENT_SCREEN_PATH);
+				RentHandler rentScreen = new RentHandler(this.stage, Configs.RENT_SCREEN_PATH, this.dock);
 				rentScreen.setPreviousScreen(this);
 				rentScreen.setBaseController(rentCtrl);
 				rentScreen.show();

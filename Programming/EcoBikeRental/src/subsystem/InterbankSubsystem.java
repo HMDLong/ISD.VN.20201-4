@@ -10,6 +10,8 @@ import subsystem.interbank.InterbankSubsystemController;
 /***
  * The {@code InterbankSubsystem} class is used to communicate with the
  * Interbank to make transaction.
+ * 
+ * @author hieud
  *
  */
 public class InterbankSubsystem implements InterbankInterface {
@@ -32,7 +34,7 @@ public class InterbankSubsystem implements InterbankInterface {
 	 * @see InterbankInterface#payOrder(entity.payment.CreditCard, int,
 	 *      java.lang.String)
 	 */
-	public PaymentTransaction pay(CreditCard card, int amount, String contents) {
+	public PaymentTransaction payOrder(CreditCard card, int amount, String contents) {
 		PaymentTransaction transaction = ctrl.payOrder(card, amount, contents);
 		return transaction;
 	}

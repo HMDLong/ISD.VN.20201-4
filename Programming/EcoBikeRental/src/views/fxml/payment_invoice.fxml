@@ -3,18 +3,19 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <SplitPane dividerPositions="0.11208615875548465" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="561.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <items>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="48.0" prefWidth="599.0" style="-fx-background-color: #00cc00;">
          <children>
-            <Label layoutX="14.0" layoutY="8.0" text="PAYMENT" textFill="#fffdfd">
+            <Label layoutX="14.0" layoutY="8.0" text="RETURN BIKE" textFill="#fffdfd">
                <font>
                   <Font size="30.0" />
                </font>
@@ -23,9 +24,9 @@
       </AnchorPane>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="472.0" prefWidth="765.0">
          <children>
-            <Button fx:id="payBackBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
-            <Button fx:id="confirmBtn" layoutX="373.0" layoutY="441.0" mnemonicParsing="false" text="Confirm" />
-            <GridPane layoutX="118.0" layoutY="105.0" prefHeight="246.0" prefWidth="212.0">
+            <Button fx:id="backBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+            <Button fx:id="returnBtn" layoutX="373.0" layoutY="441.0" mnemonicParsing="false" text="Return" />
+            <GridPane layoutX="88.0" layoutY="55.0" prefHeight="246.0" prefWidth="212.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.199951171875" minWidth="10.0" prefWidth="106.00003662109376" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.60003662109375" minWidth="10.0" prefWidth="105.19996337890626" />
@@ -41,7 +42,7 @@
                <children>
                   <Label text="Rental ID" />
                   <Label text="Start rent at" GridPane.rowIndex="1" />
-                  <Label text="Return at" GridPane.rowIndex="2" />
+                  <Label text="Rent time" GridPane.rowIndex="2" />
                   <Label text="Return to" GridPane.rowIndex="3" />
                   <Label text="Bike ID" GridPane.rowIndex="4" />
                   <Label fx:id="rentIdLabel" text="Label" GridPane.columnIndex="1" />
@@ -53,7 +54,7 @@
                   <Label fx:id="rentTypeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
             </GridPane>
-            <GridPane layoutX="475.0" layoutY="259.0">
+            <GridPane layoutX="92.0" layoutY="351.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -66,14 +67,53 @@
                <children>
                   <Label text="Deposit" />
                   <Label text="Rent fee" GridPane.rowIndex="1" />
-                  <Label text="Total" GridPane.rowIndex="2" />
+                  <Label text="Refund" GridPane.rowIndex="2" />
                   <Label fx:id="depositLabel" text="Label" GridPane.columnIndex="1" />
                   <Label fx:id="rentFeeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label fx:id="totalLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <ImageView fx:id="bikeImage" fitHeight="150.0" fitWidth="200.0" layoutX="332.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="dockImage" fitHeight="150.0" fitWidth="200.0" layoutX="575.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" />
+            <Line endX="100.0" layoutX="168.0" layoutY="325.0" startX="-100.0" />
+            <GridPane layoutX="385.0" layoutY="74.0" prefHeight="183.0" prefWidth="390.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.20001220703125" minWidth="10.0" prefWidth="133.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.599951171875" minWidth="10.0" prefWidth="294.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="68.4" minHeight="10.0" prefHeight="68.4" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="63.600012207031256" minHeight="10.0" prefHeight="60.400000000000006" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Card owner">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Card number" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Expiry date" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="228.0" text="Security code" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ownerRField" prefHeight="34.0" prefWidth="250.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="cardNumRField" prefHeight="33.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="expiryRField" prefHeight="32.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="cvvRField" prefHeight="31.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <Label layoutX="92.0" layoutY="445.0" text="Amout to pay" />
+            <Label layoutX="192.0" layoutY="446.0" text="Label" />
          </children>
       </AnchorPane>
    </items>
