@@ -9,6 +9,11 @@ import controller.search.SearchDockController;
 import controller.search.SearchDockNameController;
 import entity.dock.Dock;
 
+/**
+ * 
+ * @author Admin
+ *
+ */
 public class HomeController extends BaseController {
   private SearchDockController searchController;
   

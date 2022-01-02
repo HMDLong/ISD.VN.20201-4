@@ -8,6 +8,11 @@ import common.exception.NoResultException;
 import controller.BaseController;
 import entity.dock.Dock;
 
+/**
+ * 
+ * @author Admin
+ *
+ */
 public abstract class SearchDockController extends BaseController {
 	/**
 	 * This method search for docks that matched given keyword.

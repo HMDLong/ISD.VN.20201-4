@@ -9,6 +9,12 @@ import entity.bike.Bike;
 import entity.bike.Ebike;
 import entity.db.EcoDB;
 
+/**
+ * Represent dock entity.
+ *
+ * @author Admin
+ *
+ */
 public class Dock {
 	  private int id;
 	  private String address;
@@ -30,6 +36,11 @@ public class Dock {
 	    this.imageUrl = imgUrl;
 	  }
 	  
+	  /**
+	   * 
+	   * @return
+	   * @throws SQLException
+	   */
 	  public static ArrayList<Dock> getAllDocks() throws SQLException{
 		if(docklist == null) {
 		    docklist = new ArrayList<>();
@@ -54,17 +65,11 @@ public class Dock {
 	    return Bike.getBikesInDock(this.id);
 	  }
 	  
-	  
-	  
 	  public boolean isFull() {
 		return this.getMaxSlot()==this.getAvaiSlot();
-	}
+	  }
 	  
-	  
-	  
-	  //----------Set get------------------
-	
-	  
+	  //----------Set get------------------ 
 	  
 	  public int getId() {
 	    return id;
@@ -94,17 +99,31 @@ public class Dock {
 	    return area;
 	  }
 	  
-	  
+	  /**
+	   * 
+	   * @param bike
+	   * @return
+	   */
 	  public boolean returnBikeInDock(Bike bike) {
 		 
 		  return true;
 	  } 
 	  
+	  /**
+	   * 
+	   * @param bike
+	   * @return
+	   */
 	  public boolean rentBikeFromDock(Bike bike) {
 		  
 		  return true;
 	  }
 	  
+	  /**
+	   * 
+	   * @param bikecode
+	   * @return
+	   */
 	  public Bike getBike(String bikecode) {
 		  Ebike bike = new Ebike();
 		  bike.setBikeType("Bike");
@@ -113,7 +132,5 @@ public class Dock {
 		  bike.setImageURL("Url");
 		  bike.setBattery(100);
 		  return bike;
-	  }
-	  
-	  
+	  }  
 }

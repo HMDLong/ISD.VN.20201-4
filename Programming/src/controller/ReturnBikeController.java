@@ -9,6 +9,12 @@ import entity.bike.Bike;
 import entity.dock.Dock;
 import entity.invoice.Invoice;
 
+/**
+ * Controller class for return bike use case.
+ *
+ * @author Admin
+ *
+ */
 public class ReturnBikeController extends BaseController {
 	private Dock currentDock;
 	private PaymentController payctl ;

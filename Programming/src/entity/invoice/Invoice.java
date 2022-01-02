@@ -12,6 +12,12 @@ import caculatefee.CaculateFeeV1;
 import entity.bike.Bike;
 import utils.MyTime;
 
+/**
+ * Represent an invoice.
+ *
+ * @author Admin
+ *
+ */
 public class Invoice {
 	private Bike bike ;
 	private int id;
@@ -20,7 +26,6 @@ public class Invoice {
 	private int totalMoney;
 	private int depositFee;
 	private int status=0;
-
 
 	private static Invoice rentInvoice;
 	

@@ -7,6 +7,12 @@ import common.exception.EmptyDockException;
 import entity.bike.Bike;
 import entity.dock.Dock;
 
+/**
+ * Controller class for view bikes in dock use case.
+ *
+ * @author Admin
+ *
+ */
 public class ViewBikeController extends BaseController {
   public void requestDockList() {
     // TODO

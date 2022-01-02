@@ -3,6 +3,12 @@ package entity.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ * Responsible for connection to database.
+ *
+ * @author Admin
+ *
+ */
 public class EcoDB {
   private static Connection conn;
   

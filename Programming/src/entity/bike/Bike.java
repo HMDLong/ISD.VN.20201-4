@@ -10,6 +10,12 @@ import java.util.Map;
 import entity.db.EcoDB;
 import factory.bike.BikeFactory;
 
+/**
+ * Represent bike object.
+ *
+ * @author Admin
+ *
+ */
 public class Bike {
     private int id;
 	private String bikeType;

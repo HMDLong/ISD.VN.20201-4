@@ -108,9 +108,17 @@ public class PaymentController extends BaseController {
 		}
 		return result;
 	}
-
-
-
+	
+	/**
+	 * 
+	 * @param content
+	 * @param amount
+	 * @param cardNumber
+	 * @param cardHolderName
+	 * @param expirationDate
+	 * @param securityCode
+	 * @return
+	 */
 	public Map<String, String> requestToPay(String content ,int amount, String cardNumber, String cardHolderName,
 			String expirationDate, String securityCode) {
 		Map<String, String> result = new Hashtable<String, String>();

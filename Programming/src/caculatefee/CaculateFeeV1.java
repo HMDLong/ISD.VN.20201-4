@@ -2,6 +2,11 @@ package caculatefee;
 
 import entity.bike.Bike;
 
+/**
+ * 
+ * @author Admin
+ *
+ */
 public class CaculateFeeV1 implements CaculateFeeInterface {
 
 	@Override

@@ -9,24 +9,53 @@ import views.screens.viewbike.BikeHandler;
 import views.screens.viewbike.EbikeHandler;
 import views.screens.viewbike.StandardBikeHandler;
 
+/**
+ * 
+ * @author Admin
+ *
+ */
 public class BikeHandlerFactory {
+  /**
+   * 
+   */
 	private static BikeHandlerFactory factory;
+	/**
+	 * 
+	 */
 	private static HashMap<String, BikeHandler> registerMap = new HashMap<>();
 	
+	/**
+	 * 
+	 * @param bikeType
+	 * @param handler
+	 */
 	public void register(String bikeType, BikeHandler handler) {
 		registerMap.put(bikeType, handler);
 	}
 	
+	/**
+	 * 
+	 */
 	private BikeHandlerFactory() {
 		register("standard", new StandardBikeHandler());
 		register("electric", new EbikeHandler());
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public static BikeHandlerFactory getFactory() {
 		if(factory == null) factory = new BikeHandlerFactory();
 		return factory;
 	}
 	
+	/**
+	 * 
+	 * @param bike
+	 * @return
+	 * @throws IOException
+	 */
 	public BikeHandler create(Bike bike) throws IOException {
 	    String bikeGenericType = bike.getBikeType().split(" ")[0];
 		return registerMap.get(bikeGenericType).createBikeHandler(bike);

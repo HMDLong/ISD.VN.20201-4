@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import common.exception.InvalidSearchKeyException;
 import entity.dock.Dock;
 
+/**
+ * 
+ * @author Admin
+ *
+ */
 public class SearchDockAddressController extends SearchDockController {
 
   @Override
