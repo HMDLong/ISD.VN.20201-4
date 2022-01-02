@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import views.screens.BaseScreenHandler;
 
@@ -19,17 +20,21 @@ public class ReturnBikeHandler extends BaseScreenHandler implements Initializabl
 	@FXML
 	private Button backBtn, returnBtn;
 	@FXML
-	private Label aLabel, rentIdLabel, startRentLabel, returnTimeLabel, bikeIdLabel, rentTypeLabel, depositLabel, rentFeeLabel, refundLabel, amoutLabel
+	private Label notReturnBike, aLabel, rentIdLabel, startRentLabel, returnTimeLabel, bikeIdLabel, rentTypeLabel, depositLabel, rentFeeLabel, refundLabel, amoutLabel
 	, rentLabel, startLabel, timeLabel, bikeLabel, typeLabel, dLabel, reLabel, refLabel, ownLabel, caLabel, exLabel, seLabel;
 	private Dock dock;
 	@FXML
 	private TextField ownerRField, cardNumRField, expiryRField, cvvRField;
+	@FXML
+	private Line lineR;
 	
 	@FXML
 	private Label ownerRLabel, numberRLabel, dateRLabel, cvvRLabel, rentRInfo;
 	public ReturnBikeHandler(Stage stage, String screenPath, Dock dock) throws IOException {
 		super(stage, screenPath);
 		this.dock = dock;
+//		this.notReturnBike.setOpacity(0);
+//		this.notReturnBike.setDisable(true);
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -55,6 +60,9 @@ public class ReturnBikeHandler extends BaseScreenHandler implements Initializabl
 			});
 		}else {
 			disable();
+			this.notReturnBike.setOpacity(1);
+			this.notReturnBike.setDisable(false);
+			this.notReturnBike.setText("You don't rent bike");
 		}
 		
 		this.backBtn.setOnMouseClicked(e -> {
@@ -121,6 +129,8 @@ public class ReturnBikeHandler extends BaseScreenHandler implements Initializabl
 		this.returnBtn.setOpacity(0);
 		this.aLabel.setDisable(true);
 		this.aLabel.setOpacity(0);
+		this.lineR.setDisable(true);
+		this.lineR.setOpacity(0);
 	
 	}
 	

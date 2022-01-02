@@ -70,7 +70,7 @@
                   <Label fx:id="refundLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <Line endX="600.0" layoutX="164.0" layoutY="325.0" startX="-100.0" />
+            <Line fx:id="lineR" endX="600.0" layoutX="164.0" layoutY="325.0" startX="-100.0" />
             <GridPane fx:id="carLabel" layoutX="385.0" layoutY="74.0" prefHeight="183.0" prefWidth="390.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.20001220703125" minWidth="10.0" prefWidth="133.0" />
@@ -111,6 +111,11 @@
             </GridPane>
             <Label fx:id="aLabel" layoutX="92.0" layoutY="445.0" text="Amout to pay" />
             <Label fx:id="amoutLabel" layoutX="192.0" layoutY="446.0" text="Label" />
+            <Label fx:id="notReturnBike" layoutX="264.0" layoutY="142.0" prefHeight="183.0" prefWidth="301.0" textAlignment="CENTER" textFill="#eb0808">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </items>
