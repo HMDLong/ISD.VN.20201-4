@@ -21,11 +21,23 @@ import java.util.logging.Logger;
 import entity.payment.CreditCard;
 import entity.payment.PaymentTransaction;
 
+/**
+ * This class contains API for transaction.
+ *
+ * @author Admin
+ *
+ */
 public class API {
-
 	public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
-
+	
+	/**
+	 * 
+	 * @param url
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
 	public static String get(String url, String token) throws Exception {
 		LOGGER.info("Request URL: " + url + "\n");
 		URL line_api_url = new URL(url);
@@ -48,6 +60,13 @@ public class API {
 
 	int var;
 
+	/**
+	 * 
+	 * @param url
+	 * @param data
+	 * @return
+	 * @throws IOException
+	 */
 	public static String post(String url, String data) throws IOException {
 		URL line_api_url = new URL(url);
 		String payload = data;
@@ -77,6 +96,10 @@ public class API {
 		return response.toString();
 	}
 
+	/**
+	 * 
+	 * @param methods
+	 */
 	private static void allowMethods(String... methods) {
 		try {
 			Field methodsField = HttpURLConnection.class.getDeclaredField("methods");
@@ -97,6 +120,12 @@ public class API {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param method
+	 * @param connection
+	 * @throws IOException
+	 */
 	private static void setRequestMethod(String method, HttpURLConnection connection) throws IOException {
 		try {
 			System.out.println(method);

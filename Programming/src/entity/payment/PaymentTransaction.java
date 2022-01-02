@@ -1,5 +1,11 @@
 package entity.payment;
 
+/**
+ * Represent a payment transaction.
+ *
+ * @author Admin
+ *
+ */
 public class PaymentTransaction {
 	private String errorCode;
 	private CreditCard card;

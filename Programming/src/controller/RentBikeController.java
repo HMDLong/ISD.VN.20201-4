@@ -12,6 +12,12 @@ import entity.dock.Dock;
 import entity.invoice.Invoice;
 import entity.payment.CreditCard;
 
+/**
+ * Controller class for rent bike use case.
+ *
+ * @author Admin
+ *
+ */
 public class RentBikeController extends BaseController 	
 {
 	private Dock currentDock;

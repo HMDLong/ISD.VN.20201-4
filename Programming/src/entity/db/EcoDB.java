@@ -3,6 +3,12 @@ package entity.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+/**
+ * Responsible for connection to database.
+ *
+ * @author Admin
+ *
+ */
 public class EcoDB {
   private static Connection conn;
   
@@ -12,7 +18,7 @@ public class EcoDB {
     }
     try {
       Class.forName("org.postgresql.Driver");
-      conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/thanhtoan", "postgres", "longkkrr14");
+      conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ecobike", "postgres", "longkkrr14");
       System.out.println("Connect to database successfully");
     } catch(Exception e) {
       e.printStackTrace();

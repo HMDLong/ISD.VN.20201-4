@@ -1,5 +1,10 @@
 package common.exception;
 
+/**
+ * 
+ * @author Admin
+ *
+ */
 public class NotEnoughBalanceException extends PaymentException{
 
 	public NotEnoughBalanceException() {

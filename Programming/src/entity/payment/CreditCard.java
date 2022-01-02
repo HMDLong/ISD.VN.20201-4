@@ -2,6 +2,12 @@ package entity.payment;
 
 import java.sql.Timestamp;
 
+/**
+ * Represent a credit card.
+ *
+ * @author Admin
+ *
+ */
 public class CreditCard {
 	private String cardCode;
 	private String owner;

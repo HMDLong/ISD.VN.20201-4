@@ -2,6 +2,7 @@ package views.screens.home;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -96,7 +97,12 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
   }
   
   private void showAllDocks() {
-	  showDockList(Dock.getAllDocks());
+	  try {
+      showDockList(Dock.getAllDocks());
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   private void showDockList(ArrayList<Dock> docks) {
