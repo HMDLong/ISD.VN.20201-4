@@ -15,6 +15,7 @@ import entity.dock.Dock;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitPane;
@@ -41,6 +42,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
   
   @FXML
   private TextField searchField;
+  
+  @FXML
+  private Label bikeRentStatus, bikeRentType, bikeRentFee, bikeRentTime;
 
   @Override
   public void initialize(URL url, ResourceBundle bundle) {
