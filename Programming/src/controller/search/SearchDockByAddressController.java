@@ -4,14 +4,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import common.exception.InvalidSearchKeyException;
+import common.exception.NoResultException;
 import entity.dock.Dock;
 
 /**
- * 
- * @author Admin
- *
+  * This method search for a dock by dock address.
+   *
+   * @param key the search key user enter
+   * @return ArrayList<Dock> list of the matching dock if there is any
+   * @throws InvalidSearchKeyException if user input blank key
+   * @throws SQLException throws if error occurs during query 
  */
-public class SearchDockAddressController extends SearchDockController {
+public class SearchDockByAddressController extends SearchDockController {
 
   @Override
   public ArrayList<Dock> searchDock(String address) throws InvalidSearchKeyException, SQLException {

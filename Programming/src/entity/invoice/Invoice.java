@@ -13,9 +13,9 @@ import entity.bike.Bike;
 import utils.MyTime;
 
 /**
- * Represent an invoice.
+ * Represent an invoice entity.
  *
- * @author Admin
+ * @author Group4
  *
  */
 public class Invoice {
@@ -36,8 +36,11 @@ public class Invoice {
 		}
 		return rentInvoice;
 	}
-
-	public String getRentInfor() {
+	/**
+	 * This method get for rent bike fee
+	 *
+	 */
+	public String getRentFeeInfor() {
 		CaculateFeeInterface caculator = new CaculateFeeV1();
 		return caculator.getWayCalculateFee(bike.getBikeType());
 	}
@@ -106,7 +109,11 @@ public class Invoice {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+	/**
+	 * This method get for invoice information
+	 *
+	 * @return Map<String, String> list of result message for invoice
+	 */
 	public Map<String, String> getInvoiceInfo() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
 		String start = dateFormat.format(this.startTime);

@@ -9,7 +9,7 @@ import controller.BaseController;
 import entity.dock.Dock;
 
 /**
- * 
+ * This class controls the flow of events in homescreen
  * @author Admin
  *
  */

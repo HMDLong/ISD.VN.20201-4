@@ -15,7 +15,7 @@ import subsystem.InterbankSubsystem;
 
 /**
  * This {@code PaymentController} class control the flow of the payment process
- * in our AIMS Software.
+ * in our Ecobike Software.
  * 
  */
 public class PaymentController extends BaseController {
@@ -65,7 +65,14 @@ public class PaymentController extends BaseController {
 
 		return expirationDate;
 	}
-	
+	/**
+	 * Validate the input cvv which should be in the format number
+	 * @param cvv - the {@link java.lang.String String} represents the input date
+	 * @return {@link java.lang.integer int} - date representation of the required
+	 *         format
+	 * @throws InvalidCardException - if the string does not represent a valid cvv
+	 *                              in the expected format
+	 */
 	private int getCvv(String cvv) throws InvalidCardException {
 		int sCode;
 		try {

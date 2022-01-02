@@ -8,13 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.stage.Stage;
 import views.screens.BaseScreenHandler;
-import views.screens.home.HomeScreenHandler;
+import views.screens.home.HomeHandler;
 
 public class BaseScreenHandler extends FXMLScreenHandler {
 	private Scene scene;
 	private BaseScreenHandler prev;
 	protected final Stage stage;
-	protected static HomeScreenHandler homeScreenHandler;
+	protected static HomeHandler homeScreenHandler;
 	protected Hashtable<String, String> messages;
 	private BaseController bController;
 	protected SplitPane content;
@@ -67,7 +67,7 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 		this.messages = messages;
 	}
 
-	public void setHomeScreenHandler(HomeScreenHandler HomeScreenHandler) {
+	public void setHomeScreenHandler(HomeHandler HomeScreenHandler) {
 		if(homeScreenHandler != null) return;
 		homeScreenHandler = HomeScreenHandler;
 	}

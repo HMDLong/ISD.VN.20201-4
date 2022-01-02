@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Map;
 
+import common.exception.InvalidSearchKeyException;
+import common.exception.NoResultException;
 import entity.db.EcoDB;
 import factory.bike.BikeFactory;
 
 /**
  * Represent bike object.
  *
- * @author Admin
+ * @author Group4
  *
  */
 public class Bike {
@@ -55,7 +57,11 @@ public class Bike {
 	public int getId() {
 	  return this.id;
 	}
-	
+	/**
+	 * This method get for detailed bike information
+	 *
+	 * @return Map<String, String> list of bike info
+	 */
 	public  Map<String, String> getBikeInfo(){
 		Map<String, String> info = new Hashtable<String, String>();
 		info.put("TYPE", bikeType);
@@ -63,7 +69,13 @@ public class Bike {
 		info.put("IMAGE_URL", imageURL);
 		return info;
 	}
-	
+	/**
+	 * This method get for all bike in material dock.
+	 *
+	 * @param dockId
+	 * @return ArrayList<Dock> list of result bike
+	 * @throws SQLException throws if error occurs during query
+	 */
 	public static ArrayList<Bike> getBikesInDock(int dockId) throws SQLException{
 	  ArrayList<Bike> bikelist = new ArrayList<>();
 	  Statement stm = EcoDB.getConnection().createStatement();
@@ -78,7 +90,13 @@ public class Bike {
 	  }
 	  return bikelist;
 	}
-	
+	/**
+	 * This method for create bike.
+	 *
+	 * @param ResultSet res
+	 * @return bike
+	 * @throws SQLException throws if error occurs during query
+	 */
 	public Bike createBike(ResultSet res) throws SQLException {
 	  Bike bike = new Bike();
       bike.setBikeType(res.getString("type_name"));

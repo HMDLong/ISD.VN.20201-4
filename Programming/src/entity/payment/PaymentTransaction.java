@@ -3,7 +3,7 @@ package entity.payment;
 /**
  * Represent a payment transaction.
  *
- * @author Admin
+ * @author Group4
  *
  */
 public class PaymentTransaction {
@@ -24,7 +24,11 @@ public class PaymentTransaction {
 		this.amount = amount;
 		this.createdAt = createdAt;
 	}
-	
+	/**
+	 * This method get error code
+	 *
+	 * @return errorCode
+	 */
 	public String getErrorCode() {
 		return errorCode;
 	}

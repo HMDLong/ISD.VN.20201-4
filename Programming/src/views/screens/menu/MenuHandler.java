@@ -1,4 +1,4 @@
-package views.screens;
+package views.screens.menu;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,11 +18,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import utils.Configs;
+import views.screens.BaseScreenHandler;
 import views.screens.rent.RentHandler;
 import views.screens.returnBike.ReturnBikeHandler;
 import views.screens.viewbike.ViewBikeHandler;
 
-public class DockMenuHandler extends BaseScreenHandler implements Initializable{
+public class MenuHandler extends BaseScreenHandler implements Initializable{
 	
 	@FXML
 	private Button dockBackBtn, returnBtn, rentBtn, viewBikeBtn;
@@ -32,7 +33,7 @@ public class DockMenuHandler extends BaseScreenHandler implements Initializable{
 	
 	private Dock dock;
 	
-	public DockMenuHandler(Stage stage, String screenPath, Dock dock) throws IOException {
+	public MenuHandler(Stage stage, String screenPath, Dock dock) throws IOException {
 		super(stage, screenPath);
 		this.dock = dock;
 		this.dockAddressLabel.setText(dock.getAddress());

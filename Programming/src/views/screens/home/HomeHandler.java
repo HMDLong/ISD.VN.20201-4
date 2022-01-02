@@ -10,8 +10,8 @@ import common.exception.InvalidSearchKeyException;
 import common.exception.NoResultException;
 import controller.HomeController;
 import controller.RentBikeController;
-import controller.search.SearchDockAddressController;
-import controller.search.SearchDockNameController;
+import controller.search.SearchDockByAddressController;
+import controller.search.SearchDockByNameController;
 import entity.dock.Dock;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,9 +25,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screens.BaseScreenHandler;
+import views.screens.dock.DockHandler;
 import views.screens.rent.RentHandler;
 
-public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
+public class HomeHandler extends BaseScreenHandler implements Initializable {
   // get all FXML elements here
   @FXML
   private Button searchBtn, clearBtn;
@@ -44,22 +45,19 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
   @FXML
   private TextField searchField;
   
-  @FXML
-  private Label bikeRentStatus, bikeRentType, bikeRentFee, bikeRentTime;
-
   @Override
   public void initialize(URL url, ResourceBundle bundle) {
     searchByName.setOnAction(e -> {
     	searchByMenuBtn.setText(searchByName.getText());
     	HomeController homeCtrl = (HomeController) this.getBaseController();
-    	homeCtrl.setSearchController(new SearchDockNameController());
+    	homeCtrl.setSearchController(new SearchDockByNameController());
     	System.out.println("Search by Name, engine set!");
     });
     
     searchByAddress.setOnAction(e -> {
     	searchByMenuBtn.setText(searchByAddress.getText());
     	HomeController homeCtrl = (HomeController) this.getBaseController();
-    	homeCtrl.setSearchController(new SearchDockAddressController());
+    	homeCtrl.setSearchController(new SearchDockByAddressController());
     	System.out.println("Search by address, engine set!");
     });
     
@@ -86,7 +84,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     showAllDocks();
   }
 
-  public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
+  public HomeHandler(Stage stage, String screenPath) throws IOException {
     super(stage, screenPath);
     this.setHomeScreenHandler(this);
   }

@@ -26,7 +26,9 @@ public class Ebike extends Bike {
 		}
 		this.battery = battery;
 	}
-	
+	/**
+	 * This method get for detailed bike information
+	 */
 	public Map<String, String> getBikeInfo(){
 		Map<String, String> info = super.getBikeInfo();
 		info.put("BATTERY", Integer.toString(battery));
@@ -35,6 +37,7 @@ public class Ebike extends Bike {
 	
 	/**
 	 * Return a bike object, made from query result.
+	 * @throws SQLException throws if error occurs during query
 	 */
 	public Ebike createBike(ResultSet res) throws SQLException {
 	  Ebike bike = new Ebike();

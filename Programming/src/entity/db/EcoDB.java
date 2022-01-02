@@ -6,19 +6,21 @@ import java.sql.DriverManager;
 /**
  * Responsible for connection to database.
  *
- * @author Admin
+ * @author Group4
  *
  */
 public class EcoDB {
   private static Connection conn;
-  
+  	/**
+	 * This method get connect to database
+	 */
   public static Connection getConnection() {
     if(conn != null) {
       return conn;
     }
     try {
       Class.forName("org.postgresql.Driver");
-      conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ecobike", "postgres", "longkkrr14");
+      conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ecobike", "postgres", "robinhieu2310");
       System.out.println("Connect to database successfully");
     } catch(Exception e) {
       e.printStackTrace();

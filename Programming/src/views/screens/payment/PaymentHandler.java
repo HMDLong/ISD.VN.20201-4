@@ -60,7 +60,7 @@ public class PaymentHandler extends BaseScreenHandler implements Initializable {
 				RentBikeController payCtrl = new RentBikeController();
 				payCtrl.setCurrentDock(this.dock);
 				Map<String, String> responseToPay = new Hashtable<String, String>();
-	    		responseToPay = payCtrl.rent(cardNumField.getText(), ownerField.getText(), expiryField.getText(), cvvField.getText());
+	    		responseToPay = payCtrl.rentBike(cardNumField.getText(), ownerField.getText(), expiryField.getText(), cvvField.getText());
 	    		if(responseToPay.get("RESULT").equals("RENT FAILED!")) {
 	    			
 	    			this.rentInfo.setOpacity(1);

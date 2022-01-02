@@ -116,6 +116,13 @@
                   <Font size="29.0" />
                </font>
             </Label>
+            <Button fx:id="goHomeBtn" layoutX="375.0" layoutY="442.0" mnemonicParsing="false" text="Go home" />
+            <Button fx:id="okeBtn" layoutX="373.0" layoutY="441.0" mnemonicParsing="false" text="Oke" />
+            <Label fx:id="returnInfo" layoutX="278.0" layoutY="191.0" prefHeight="112.0" prefWidth="362.0" textAlignment="JUSTIFY" textFill="#01fc37">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </items>

@@ -1,11 +1,14 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Map;
 
 import caculatefee.CaculateFeeInterface;
 import caculatefee.CaculateFeeV1;
+import common.exception.InvalidSearchKeyException;
+import common.exception.NoResultException;
 import entity.bike.Bike;
 import entity.bike.Ebike;
 import entity.dock.Dock;
@@ -15,7 +18,7 @@ import entity.payment.CreditCard;
 /**
  * Controller class for rent bike use case.
  *
- * @author Admin
+ * @author Group4
  *
  */
 public class RentBikeController extends BaseController 	
@@ -34,8 +37,13 @@ public class RentBikeController extends BaseController
 		this.currentDock = currentDock;
 	}
 	
-	
-	public Map<String, String> rent(String cardNumber, String cardHolderName,
+	/**
+	 * This method rent bike from docks.
+	 *
+	 * @param cardNumber, cardHolderName, expirationDate, securityCode
+	 * @return Map<String, String> list of result message for rent bike
+	 */
+	public Map<String, String> rentBike(String cardNumber, String cardHolderName,
 			String expirationDate, String securityCode) 
 	{
 		
@@ -60,7 +68,12 @@ public class RentBikeController extends BaseController
 		
 		return result;
 	}
-	
+	/**
+	 * This method get bike detailed information.
+	 *
+	 * @param barCode
+	 * @return Map<String, String> list of result message for bike information
+	 */
 	public Map<String, String> getBikeInfo(String barCode) {
 		invoice = Invoice.getRentInvoice();
 		String bikeCode = convertBarcodeToBikecode(barCode);
@@ -68,7 +81,7 @@ public class RentBikeController extends BaseController
 		Bike bike = currentDock.getBike(bikeCode);
 		if (bike != null) {
 			invoice.setBike(bike);
-			invoice.getRentInfor();
+			invoice.getRentFeeInfor();
 			if(bike.getBikeType().equals("Bike")) {
 				result = bike.getBikeInfo();
 			}else
@@ -78,7 +91,7 @@ public class RentBikeController extends BaseController
 			}
 			result.put("RESULT", "SUCESSFULL");
 			result.put("DEPOSIT", Integer.toString(invoice.getDepositFee()));
-			result.put("RENTINFO", invoice.getRentInfor());
+			result.put("RENTINFO", invoice.getRentFeeInfor());
 			
 		}
 		else {
@@ -87,7 +100,12 @@ public class RentBikeController extends BaseController
 		}
 		return result;
 	}
-	
+	/**
+	 * This method convert barcode to bikecode.
+	 *
+	 * @param barcode
+	 * @return bikecode
+	 */
 	public String convertBarcodeToBikecode(String barcode)
 	{
 		String bikeCode = barcode + "bike";

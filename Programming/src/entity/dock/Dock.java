@@ -12,7 +12,7 @@ import entity.db.EcoDB;
 /**
  * Represent dock entity.
  *
- * @author Admin
+ * @author Group4
  *
  */
 public class Dock {
@@ -37,10 +37,11 @@ public class Dock {
 	  }
 	  
 	  /**
-	   * 
-	   * @return
-	   * @throws SQLException
-	   */
+		 * This method get for all dock in system.
+		 *
+		 * @return ArrayList<Dock> list of dock
+		 * @throws SQLException throws if error occurs during query
+		 */
 	  public static ArrayList<Dock> getAllDocks() throws SQLException{
 		if(docklist == null) {
 		    docklist = new ArrayList<>();
@@ -60,11 +61,20 @@ public class Dock {
 		}
 	    return docklist;
 	  }
-	  
+	  /**
+		 * This method get for all bike in material dock.
+		 *
+		 * @return ArrayList<Bike> list of dock
+		 * @throws SQLException throws if error occurs during query
+		 */
 	  public ArrayList<Bike> getBikes() throws SQLException{
 	    return Bike.getBikesInDock(this.id);
 	  }
-	  
+	  /**
+		 * This method check available empty slot in dock .
+		 *
+		 * @return boolean (true if full slot)
+		 */
 	  public boolean isFull() {
 		return this.getMaxSlot()==this.getAvaiSlot();
 	  }
@@ -100,30 +110,33 @@ public class Dock {
 	  }
 	  
 	  /**
-	   * 
-	   * @param bike
-	   * @return
-	   */
+		 * This method check success for return bike.
+		 *
+		 * @param bike
+		 * @return boolean (true if return bike successfully)
+		 */
 	  public boolean returnBikeInDock(Bike bike) {
 		 
 		  return true;
 	  } 
 	  
 	  /**
-	   * 
-	   * @param bike
-	   * @return
-	   */
+		 * This method check success for rent bike.
+		 *
+		 * @param bike
+		 * @return boolean (true if rent bike successfully)
+		 */
 	  public boolean rentBikeFromDock(Bike bike) {
 		  
 		  return true;
 	  }
 	  
 	  /**
-	   * 
-	   * @param bikecode
-	   * @return
-	   */
+		 * This method get bike from dock match the bikecode.
+		 *
+		 * @param bikecode
+		 * @return Bike
+		 */
 	  public Bike getBike(String bikecode) {
 		  Ebike bike = new Ebike();
 		  bike.setBikeType("Bike");

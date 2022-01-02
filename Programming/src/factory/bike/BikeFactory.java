@@ -8,21 +8,19 @@ import entity.bike.Bike;
 import entity.bike.Ebike;
 
 /**
- * 
- * @author Admin
+ * Represent for bike factory.
+ *
+ * @author Group4
  *
  */
 public class BikeFactory {
-  /**
-   * 
-   */
+  
   private HashMap<String, Bike> registryMap = new HashMap<>();
-  
-  /**
-   * 
-   */
   private static BikeFactory factory;
-  
+  /**
+	 * This method for create bike
+	 *
+	 */
   public BikeFactory() {
     register("standard", new Bike());
     register("electric", new Ebike());
@@ -37,10 +35,6 @@ public class BikeFactory {
     this.registryMap.put(bikeType, bike);
   }
   
-  /**
-   * 
-   * @return
-   */
   public static BikeFactory getFactory() {
     if(factory == null) factory = new BikeFactory();
     return factory;
@@ -49,8 +43,8 @@ public class BikeFactory {
   /**
    * 
    * @param res
-   * @return
-   * @throws SQLException
+   * @return bike
+   * @throws SQLException throws if error occurs during query
    */
   public Bike create(ResultSet res) throws SQLException {
     String bikeGenericType = res.getString("type_name").split(" ")[0];

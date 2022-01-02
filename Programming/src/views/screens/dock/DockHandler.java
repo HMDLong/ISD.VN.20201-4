@@ -1,4 +1,4 @@
-package views.screens.home;
+package views.screens.dock;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,8 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import utils.Configs;
-import views.screens.DockMenuHandler;
 import views.screens.FXMLScreenHandler;
+import views.screens.home.HomeHandler;
+import views.screens.menu.MenuHandler;
 
 public class DockHandler extends FXMLScreenHandler {
   @FXML
@@ -33,11 +34,11 @@ public class DockHandler extends FXMLScreenHandler {
   @FXML
   private Button returnBtn;
   
-  private HomeScreenHandler homeScreen;
+  private HomeHandler homeScreen;
   private Dock dock;
   private Pane content;
   
-  public DockHandler(String screenPath, HomeScreenHandler homeScreen) throws IOException {
+  public DockHandler(String screenPath, HomeHandler homeScreen) throws IOException {
       super(screenPath);
       this.content = (Pane) this.getLoader().load();
       this.homeScreen = homeScreen;
@@ -59,7 +60,7 @@ public class DockHandler extends FXMLScreenHandler {
     this.availableLabel.setText("Available: " + dock.getAvaiSlot());
     this.toDockBtn.setOnMouseClicked(e -> {
       try {
-        DockMenuHandler dockMenu = new DockMenuHandler(this.homeScreen.getStage(), Configs.DOCK_MENU_PATH, this.dock);
+        MenuHandler dockMenu = new MenuHandler(this.homeScreen.getStage(), Configs.DOCK_MENU_PATH, this.dock);
         dockMenu.setPreviousScreen(this.homeScreen);
         dockMenu.show();
       } catch(Exception ex) {

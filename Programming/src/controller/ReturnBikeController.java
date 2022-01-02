@@ -1,10 +1,13 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.Map;
 
 import caculatefee.CaculateFeeInterface;
 import caculatefee.CaculateFeeV1;
+import common.exception.InvalidSearchKeyException;
+import common.exception.NoResultException;
 import entity.bike.Bike;
 import entity.dock.Dock;
 import entity.invoice.Invoice;
@@ -12,7 +15,7 @@ import entity.invoice.Invoice;
 /**
  * Controller class for return bike use case.
  *
- * @author Admin
+ * @author Group4
  *
  */
 public class ReturnBikeController extends BaseController {
@@ -27,7 +30,11 @@ public class ReturnBikeController extends BaseController {
 	public void setCurrentDock(Dock currentDock) {
 		this.currentDock = currentDock;
 	}
-	
+	/**
+	 * This method get invoice information for rent bike.
+	 *
+	 * @return Map<String, String> list of result message for invoice information
+	 */
 	public Map<String, String > getInvoiceInfo() {
 			invoice = Invoice.getRentInvoice();
 			Map<String, String> result;
@@ -40,7 +47,12 @@ public class ReturnBikeController extends BaseController {
 			}
 			return result;
 	}	
-	
+	/**
+	 * This method return bike to dock.
+	 *
+	 * @param cardNumber, cardHolderName, expirationDate, securityCode
+	 * @return Map<String, String> list of result message for return bike
+	 */
 	public Map<String, String> returnBike(String cardNumber, String cardHolderName, String expirationDate,
 			String securityCode) {
 		payctl = new PaymentController();

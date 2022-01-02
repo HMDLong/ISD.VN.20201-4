@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 /**
  * Represent a credit card.
  *
- * @author Admin
+ * @author Group4
  *
  */
 public class CreditCard {

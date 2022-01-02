@@ -2,6 +2,7 @@ package views.screens.returnBike;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.ResourceBundle;
 import controller.ReturnBikeController;
@@ -18,9 +19,9 @@ import views.screens.BaseScreenHandler;
 
 public class ReturnBikeHandler extends BaseScreenHandler implements Initializable{
 	@FXML
-	private Button backBtn, returnBtn;
+	private Button backBtn, returnBtn, okeBtn, goHomeBtn ;
 	@FXML
-	private Label notReturnBike, aLabel, rentIdLabel, startRentLabel, returnTimeLabel, bikeIdLabel, rentTypeLabel, depositLabel, rentFeeLabel, refundLabel, amoutLabel
+	private Label returnInfo, notReturnBike, aLabel, rentIdLabel, startRentLabel, returnTimeLabel, bikeIdLabel, rentTypeLabel, depositLabel, rentFeeLabel, refundLabel, amoutLabel
 	, rentLabel, startLabel, timeLabel, bikeLabel, typeLabel, dLabel, reLabel, refLabel, ownLabel, caLabel, exLabel, seLabel;
 	private Dock dock;
 	@FXML
@@ -33,8 +34,14 @@ public class ReturnBikeHandler extends BaseScreenHandler implements Initializabl
 	public ReturnBikeHandler(Stage stage, String screenPath, Dock dock) throws IOException {
 		super(stage, screenPath);
 		this.dock = dock;
+		this.okeBtn.setOpacity(0);
+		this.okeBtn.setDisable(true);
+		this.goHomeBtn.setOpacity(0);
+		this.goHomeBtn.setDisable(true);
+		this.returnInfo.setOpacity(0);
+		this.returnInfo.setDisable(true);
 //		this.notReturnBike.setOpacity(0);
-//		this.notReturnBike.setDisable(true);
+		this.notReturnBike.setDisable(true);
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -55,8 +62,26 @@ public class ReturnBikeHandler extends BaseScreenHandler implements Initializabl
 			this.refundLabel.setText(invoiceInfo.get("REFUND"));
 			this.amoutLabel.setText(invoiceInfo.get("AMOUNT"));
 			this.returnBtn.setOnMouseClicked(e -> {
+				if(!cardNumRField.getText().equals("")  && !ownerRField.getText().equals("") && !cvvRField.getText().equals("") && !expiryRField.getText().equals("")) {
+				disable();
 				returnBike.setCurrentDock(this.dock);
-				returnBike.returnBike(cardNumRField.getText(), ownerRField.getText(), expiryRField.getText(), cvvRField.getText());
+				Map<String, String> responseToPay = new Hashtable<String, String>();
+				responseToPay = returnBike.returnBike(cardNumRField.getText(), ownerRField.getText(), expiryRField.getText(), cvvRField.getText());
+				if(responseToPay.get("RESULT").equals("RENT FAILED!")) {
+	    			
+	    			this.returnInfo.setOpacity(1);
+	    			this.returnInfo.setDisable(false);    			
+	    			this.okeBtn.setOpacity(1);
+	    			this.okeBtn.setDisable(false);
+	    			this.returnInfo.setText(responseToPay.get("MESSAGE"));
+	    		}else {
+	    			this.returnInfo.setOpacity(1);
+	    			this.returnInfo.setDisable(false);
+	    			this.goHomeBtn.setOpacity(1);
+	    			this.goHomeBtn.setDisable(false);
+	    			this.returnInfo.setText("Return successful");
+	    		}
+				}
 			});
 		}else {
 			disable();
@@ -67,6 +92,24 @@ public class ReturnBikeHandler extends BaseScreenHandler implements Initializabl
 		
 		this.backBtn.setOnMouseClicked(e -> {
 			this.getPreviousScreen().show();
+		});
+		
+		this.okeBtn.setOnMouseClicked(e -> {
+			this.okeBtn.setDisable(true);
+			this.okeBtn.setOpacity(0);
+			this.returnInfo.setDisable(true);
+			this.returnInfo.setOpacity(0);
+			this.backBtn.setOpacity(0);
+			this.backBtn.setDisable(true);
+			undisable();
+		});
+		this.goHomeBtn.setOnMouseClicked(e -> {
+			this.goHomeBtn.setDisable(true);
+			this.goHomeBtn.setOpacity(0);
+			this.returnInfo.setDisable(true);
+			this.returnInfo.setOpacity(0);
+
+			homeScreenHandler.show();
 		});
 	}
 	
@@ -131,6 +174,70 @@ public class ReturnBikeHandler extends BaseScreenHandler implements Initializabl
 		this.aLabel.setOpacity(0);
 		this.lineR.setDisable(true);
 		this.lineR.setOpacity(0);
+	
+	}
+	
+	private void undisable() {
+		this.rentIdLabel.setDisable(false);
+		this.rentIdLabel.setOpacity(1);
+		this.startRentLabel.setDisable(false);
+		this.startRentLabel.setOpacity(1);
+		this.returnTimeLabel.setDisable(false);
+		this.returnTimeLabel.setOpacity(1);
+		this.bikeIdLabel.setDisable(false);
+		this.bikeIdLabel.setOpacity(1);
+		this.rentTypeLabel.setDisable(false);
+		this.rentTypeLabel.setOpacity(1);
+		this.depositLabel.setDisable(false);
+		this.depositLabel.setOpacity(1);
+		
+		this.rentFeeLabel.setDisable(false);
+		this.rentFeeLabel.setOpacity(1);
+		this.refundLabel.setDisable(false);
+		this.refundLabel.setOpacity(1);
+		this.amoutLabel.setDisable(false);
+		this.amoutLabel.setOpacity(1);
+		this.rentLabel.setDisable(false);
+		this.rentLabel.setOpacity(1);
+		
+		this.startLabel.setDisable(false);
+		this.startLabel.setOpacity(1);
+		
+		this.timeLabel.setDisable(false);
+		this.timeLabel.setOpacity(1);
+		this.bikeLabel.setDisable(false);
+		this.bikeLabel.setOpacity(1);
+		this.typeLabel.setDisable(false);
+		this.typeLabel.setOpacity(1);
+		this.dLabel.setDisable(false);
+		this.dLabel.setOpacity(1);
+		
+		this.reLabel.setDisable(false);
+		this.reLabel.setOpacity(1);
+		this.refLabel.setDisable(false);
+		this.refLabel.setOpacity(1);this.ownLabel.setDisable(false);
+		this.ownLabel.setOpacity(1);
+		this.caLabel.setDisable(false);
+		this.caLabel.setOpacity(1);
+		
+		this.exLabel.setDisable(false);
+		this.exLabel.setOpacity(1);this.seLabel.setDisable(false);
+		this.seLabel.setOpacity(1);
+		
+		this.ownerRField.setDisable(false);
+		this.ownerRField.setOpacity(1);
+		this.cardNumRField.setDisable(false);
+		this.cardNumRField.setOpacity(1);
+		this.expiryRField.setDisable(false);
+		this.expiryRField.setOpacity(1);
+		this.cvvRField.setDisable(false);
+		this.cvvRField.setOpacity(1);
+		this.returnBtn.setDisable(false);
+		this.returnBtn.setOpacity(1);
+		this.aLabel.setDisable(false);
+		this.aLabel.setOpacity(1);
+		this.lineR.setDisable(false);
+		this.lineR.setOpacity(1);
 	
 	}
 	

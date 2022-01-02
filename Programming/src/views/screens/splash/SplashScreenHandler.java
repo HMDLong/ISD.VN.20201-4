@@ -1,4 +1,4 @@
-package views.screens;
+package views.screens.splash;
 
 public class SplashScreenHandler {
 
