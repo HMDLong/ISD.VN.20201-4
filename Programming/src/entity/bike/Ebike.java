@@ -1,5 +1,7 @@
 package entity.bike;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
 
 public class Ebike extends Bike {
@@ -24,6 +26,17 @@ public class Ebike extends Bike {
 		info.put("BATTERY", Integer.toString(battery));
 		return info;
 		
+	}
+	
+	public Ebike createBike(ResultSet res) throws SQLException {
+	  Ebike bike = new Ebike();
+      bike.setBikeType(res.getString("type_name"));
+      bike.setBikeCode(res.getString("bike_code"));
+      bike.setId(res.getInt("id"));
+      bike.setImageURL(res.getString("image_url"));
+      bike.setStatus(false);
+      bike.setBattery(res.getInt("battery"));
+      return bike;
 	}
 	
 }

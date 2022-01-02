@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import common.exception.InvalidSearchKeyException;
@@ -30,8 +31,9 @@ public class HomeController extends BaseController {
    * @return ArrayList<Dock> list of the matching dock if there is any
    * @throws InvalidSearchKeyException if user input blank key
    * @throws NoResultException if there is no matching dock found
+   * @throws SQLException 
    */
-  public ArrayList<Dock> search(String key) throws InvalidSearchKeyException, NoResultException {
+  public ArrayList<Dock> search(String key) throws InvalidSearchKeyException, NoResultException, SQLException {
 	  ArrayList<Dock> result = this.searchController.searchDock(key);
 	  return result;
   }

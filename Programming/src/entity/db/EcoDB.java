@@ -12,7 +12,7 @@ public class EcoDB {
     }
     try {
       Class.forName("org.postgresql.Driver");
-      conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/thanhtoan", "postgres", "longkkrr14");
+      conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ecobike", "postgres", "longkkrr14");
       System.out.println("Connect to database successfully");
     } catch(Exception e) {
       e.printStackTrace();

@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import common.exception.EmptyDockException;
@@ -11,13 +12,12 @@ public class ViewBikeController extends BaseController {
     // TODO
   }
 	  
-  public ArrayList<Bike> requestViewBikes(Dock dock) throws EmptyDockException {
+  public ArrayList<Bike> requestViewBikes(Dock dock) throws EmptyDockException, SQLException {
     // TODO
-//    ArrayList<Bike> bikelist = dock.getBikes();
-//    if(bikelist.size() == 0) {
-//      throw new EmptyDockException("No bikes in the dock");
-//    }
-//    return bikelist;
-	  return null;
+    ArrayList<Bike> bikelist = dock.getBikes();
+    if(bikelist.size() == 0) {
+      throw new EmptyDockException("No bikes in the dock");
+    }
+    return bikelist;
   }
 }

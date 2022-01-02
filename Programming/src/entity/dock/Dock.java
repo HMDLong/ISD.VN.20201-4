@@ -1,9 +1,13 @@
 package entity.dock;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import entity.bike.Bike;
 import entity.bike.Ebike;
+import entity.db.EcoDB;
 
 public class Dock {
 	  private int id;
@@ -12,33 +16,42 @@ public class Dock {
 	  private int maxSlot;
 	  private int avaiSlot;
 	  private int area;
+	  private String imageUrl;
 	  private static ArrayList<Dock> docklist;
 	  
 	  
-	  public Dock(int id, String address, String name, int maxSlot, int availSlot, int area) {
+	  public Dock(int id, String address, String name, int maxSlot, int availSlot, int area, String imgUrl) {
 	    this.id = id;
 	    this.address = address;
 	    this.name = name;
 	    this.maxSlot = maxSlot;
 	    this.avaiSlot = availSlot;
 	    this.area = area;
+	    this.imageUrl = imgUrl;
 	  }
 	  
-	  public static ArrayList<Dock> getAllDocks(){
+	  public static ArrayList<Dock> getAllDocks() throws SQLException{
 		if(docklist == null) {
 		    docklist = new ArrayList<>();
-		    docklist.add(new Dock(1, "Tower A1", "Dock 1", 20, 10, 200));
-			docklist.add(new Dock(2, "Tower A2", "Dock 2", 10, 5, 100));
-			docklist.add(new Dock(3, "Tower B3", "Dock 3", 15, 15, 200));
-			docklist.add(new Dock(4, "Tower C4", "Dock 4", 15, 15, 200));
-			docklist.add(new Dock(5, "Tower C5", "Dock 5", 15, 15, 200));
-			docklist.add(new Dock(6, "Tower D3", "Dock 6", 15, 15, 200));
+		    Statement stm = EcoDB.getConnection().createStatement();
+		    String query = "select * from docks;";
+		    ResultSet res = stm.executeQuery(query);
+		    while(res.next()) {
+		      docklist.add(new Dock(res.getInt("id"),
+		                            res.getString("address"),
+		                            res.getString("name"),
+		                            res.getInt("max_capacity"),
+		                            res.getInt("avail_slot"),
+		                            res.getInt("area"),
+		                            res.getString("image_url")));
+		      
+		    }
 		}
 	    return docklist;
 	  }
 	  
-	  public ArrayList<Bike> getBikes(){
-	    return new ArrayList<Bike>();
+	  public ArrayList<Bike> getBikes() throws SQLException{
+	    return Bike.getBikesInDock(this.id);
 	  }
 	  
 	  

@@ -27,7 +27,8 @@ public class BikeHandlerFactory {
 		return factory;
 	}
 	
-	public BikeHandler create(String bikeType, Bike bike) throws IOException {
-		return registerMap.get(bikeType).createBikeHandler(bike);
+	public BikeHandler create(Bike bike) throws IOException {
+	    String bikeGenericType = bike.getBikeType().split(" ")[0];
+		return registerMap.get(bikeGenericType).createBikeHandler(bike);
 	}
 }

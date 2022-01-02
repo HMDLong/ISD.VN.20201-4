@@ -1,5 +1,6 @@
 package controller.search;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import common.exception.InvalidSearchKeyException;
@@ -15,8 +16,9 @@ public abstract class SearchDockController extends BaseController {
 	 * @return ArrayList<Dock> list of result dock
 	 * @throws NoResultException throws if there is no matching dock
 	 * @throws InvalidSearchKeyException throws if the given keyword is invalid
+	 * @throws SQLException throws if error occurs during query
 	 */
-  public abstract ArrayList<Dock> searchDock(String key) throws NoResultException, InvalidSearchKeyException;
+  public abstract ArrayList<Dock> searchDock(String key) throws NoResultException, InvalidSearchKeyException, SQLException;
   
   /**
    * This method validates search key inputed from user.

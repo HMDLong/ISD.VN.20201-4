@@ -37,8 +37,8 @@
             <Label fx:id="depositLabel" text="VND 420.000" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Battery" GridPane.columnIndex="2" />
             <Label prefHeight="18.0" prefWidth="87.0" text="Remaining time" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label text="80%" GridPane.columnIndex="3" />
-            <Label text="5h40m" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="batteryLabel" text="80%" GridPane.columnIndex="3" />
+            <Label fx:id="optTimeLabel" text="5h40m" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

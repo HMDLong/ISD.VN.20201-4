@@ -84,7 +84,7 @@ public class DockMenuHandler extends BaseScreenHandler implements Initializable{
 			} catch (EmptyDockException e1) {
 				System.out.println(e1.getMessage());
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				System.out.println(ex.getMessage());
 			}
 		});
 	}
