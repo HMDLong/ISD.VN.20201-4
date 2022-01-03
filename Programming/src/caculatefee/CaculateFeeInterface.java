@@ -23,5 +23,5 @@ public interface CaculateFeeInterface {
 	 * @param bike
 	 * @return String
 	 */
-	public String getWayCalculateFee(String bike);
+	public String getInfoRental(String bike);
 }

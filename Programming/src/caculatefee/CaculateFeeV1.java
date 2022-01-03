@@ -12,7 +12,13 @@ public class CaculateFeeV1 implements CaculateFeeInterface {
 	@Override
 	public int caculateDepositFee(String bike) {
 		// TODO Auto-generated method stub
-		return 4000;
+		if(bike.equals("standard single"))
+			return 400000;
+		else if(bike.equals("standard twin"))
+			return 550000;
+		else if(bike.equals("electric single"))
+			return 700000;
+		else return 850000;
 	}
 
 	@Override
@@ -23,8 +29,8 @@ public class CaculateFeeV1 implements CaculateFeeInterface {
 	}
 
 	@Override
-	public String getWayCalculateFee(String bike) {
-		return "duoi 10 phut ban duoc mien phi, 10000/h, ban phai dat coc 400,000.0 VND de thue xe";
+	public String getInfoRental(String bike) {
+		return "Giá tiền thuê xe là 10000/h.Thuê dưới 10 phut bạn được miễn phí tiền đặt cọc, thuê trên 10 phút bạn phải đặt cọc với số tiền bằng 40% giá trị xe để thuê xe";
 	}
 	
 	

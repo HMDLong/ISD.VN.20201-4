@@ -5,12 +5,15 @@ import java.io.IOException;
 import entity.bike.Bike;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import views.screens.FXMLScreenHandler;
 
 public abstract class BikeHandler extends FXMLScreenHandler {
     @FXML
     private Label bikeTypeLabel, bikecodeLabel, depositLabel, bikeName;
+    @FXML
+    private ImageView bikeImage;
   
 	protected Pane content;
 	protected Bike bike;

@@ -42,7 +42,7 @@ public class Invoice {
 	 */
 	public String getRentFeeInfor() {
 		CaculateFeeInterface caculator = new CaculateFeeV1();
-		return caculator.getWayCalculateFee(bike.getBikeType());
+		return caculator.getInfoRental(bike.getBikeType());
 	}
 
 	public  void saveRentInvoice() {};
