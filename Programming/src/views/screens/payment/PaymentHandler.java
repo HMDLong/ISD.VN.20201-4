@@ -8,9 +8,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import controller.RentBikeController;
-import entity.bike.Bike;
 import entity.dock.Dock;
-import controller.PaymentController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -18,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import utils.Utils;
 import views.screens.BaseScreenHandler;
 
 public class PaymentHandler extends BaseScreenHandler implements Initializable {
@@ -26,16 +25,18 @@ public class PaymentHandler extends BaseScreenHandler implements Initializable {
 	
 	@FXML
 	private Label depositRentBike,ownerLabel, numberLabel, dateLabel, cvvLabel, methodLabel, rentInfo;
+	
 	@FXML
 	private Button cancelBtn, submitBtn, okeBtn, goHomeBtn;
 	
 	@FXML
 	private RadioButton creditCardRadio;
+	
 	private Dock dock;
 
 	public PaymentHandler(Stage stage, String screenPath, String deposit, Dock dock) throws IOException {
 		super(stage, screenPath);
-		depositRentBike.setText("Deposit: " + deposit + "VND");
+		this.depositRentBike.setText("Deposit: " + Utils.getCurrencyFormat(Integer.parseInt(deposit)));
 		this.okeBtn.setOpacity(0);
 		this.okeBtn.setDisable(true);
 		this.goHomeBtn.setOpacity(0);
@@ -43,8 +44,6 @@ public class PaymentHandler extends BaseScreenHandler implements Initializable {
 		this.rentInfo.setOpacity(0);
 		this.rentInfo.setDisable(true);
 		this.dock = dock;
-
-//		this.submitBtn.setDisable(false);
 	}
 
 	@Override
@@ -53,18 +52,15 @@ public class PaymentHandler extends BaseScreenHandler implements Initializable {
 			this.getPreviousScreen().show();
 		});
 		
-		
 		this.submitBtn.setOnMouseClicked(e -> {
 			if(!cardNumField.getText().equals("")  && !ownerField.getText().equals("") && !expiryField.getText().equals("") && !cvvField.getText().equals("")) {
 				disableAllBtn();
-
 				RentBikeController payCtrl = new RentBikeController();
 				payCtrl.setCurrentDock(this.dock);
 				Map<String, String> responseToPay = new Hashtable<String, String>();
 	    		try {
 				 	responseToPay = payCtrl.rentBike(cardNumField.getText(), ownerField.getText(), expiryField.getText(), cvvField.getText());
 					 if(responseToPay.get("RESULT").equals("RENT FAILED!")) {
-	    			
 						this.rentInfo.setOpacity(1);
 						this.rentInfo.setDisable(false);    			
 						this.okeBtn.setOpacity(1);
@@ -78,14 +74,11 @@ public class PaymentHandler extends BaseScreenHandler implements Initializable {
 						this.rentInfo.setText("Rent successful");
 					}
                 } catch (SQLException e1) {
-                  // TODO Auto-generated catch block
-                  e1.printStackTrace();
+                  System.out.println(e1.getMessage());
                 }
-	    		
 			}
-			
-    		//homeScreenHandler.show();
 		});
+		
 		this.okeBtn.setOnMouseClicked(e -> {
 			this.okeBtn.setDisable(true);
 			this.okeBtn.setOpacity(0);
@@ -93,10 +86,9 @@ public class PaymentHandler extends BaseScreenHandler implements Initializable {
 			this.rentInfo.setOpacity(0);
 			this.cancelBtn.setOpacity(0);
 			this.cancelBtn.setDisable(false);
-
-
 			undisableAllBtn();
 		});
+		
 		this.goHomeBtn.setOnMouseClicked(e -> {
 			this.goHomeBtn.setDisable(true);
 			this.goHomeBtn.setOpacity(0);

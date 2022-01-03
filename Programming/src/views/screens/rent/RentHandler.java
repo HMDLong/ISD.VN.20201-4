@@ -1,5 +1,6 @@
 package views.screens.rent;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screens.BaseScreenHandler;
@@ -36,13 +39,19 @@ public class RentHandler extends BaseScreenHandler implements Initializable {
 	
 	@FXML
 	private Button rentBackBtn, confirmBtn, selectBike;
+	
 	@FXML
 	private Label bikeStatus, bikeType, bikeBattery, bikeId,  rentMethodInfo, notAvaiableBike;
+	
 	@FXML
 	private TextField barcodeField;
 	
 	@FXML
+	private ImageView rentBikeImage;
+	
+	@FXML
 	private RadioButton stdRentRadio;
+	
 	private Dock dock;
 
 	public RentHandler(Stage stage, String screenPath, Dock dock) throws IOException {
@@ -50,12 +59,13 @@ public class RentHandler extends BaseScreenHandler implements Initializable {
 		this.dock = dock;
 		disableAllBtn();
 	}
+	
 	private Map<String, String> result = null ;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.selectBike.setOnMouseClicked(e -> {
 			try {
-//				ArrayList<Bike> bikelist = bikeCtrl.requestViewBikes(this.dock);
 	    		RentBikeController rentCtrl = (RentBikeController) this.getBaseController();
 	    		rentCtrl.setCurrentDock(dock);
 	    		result = rentCtrl.getBikeInfo(barcodeField.getText());
@@ -89,12 +99,10 @@ public class RentHandler extends BaseScreenHandler implements Initializable {
 		
 		this.confirmBtn.setOnMouseClicked(e -> {
 			try {
-//				if(rentBike != null) {
-					PaymentHandler payScreen = new PaymentHandler(this.stage, Configs.PAYMENT_PATH, result.get("DEPOSIT"), this.dock);
-					payScreen.setBaseController(new PaymentController());
-					payScreen.setPreviousScreen(this);
-					payScreen.show();
-//				}
+				PaymentHandler payScreen = new PaymentHandler(this.stage, Configs.PAYMENT_PATH, result.get("DEPOSIT"), this.dock);
+				payScreen.setBaseController(new PaymentController());
+				payScreen.setPreviousScreen(this);
+				payScreen.show();
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
@@ -109,6 +117,9 @@ public class RentHandler extends BaseScreenHandler implements Initializable {
 	private void showRentBike(String bikeType, String bikeCode, String img_url, String battery, String bikeId) {
 		this.bikeId.setText("Bike ID: " + bikeId);
 	    this.bikeType.setText("Bike Type: " + bikeType);
+	    File file = new File(img_url);
+	    Image image = new Image(file.toURI().toString());
+	    this.rentBikeImage.setImage(image);
 	    if(battery != null) {
 		    this.bikeBattery.setText("Battery: " + battery + "%");
 	    }

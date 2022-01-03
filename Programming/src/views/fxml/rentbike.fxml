@@ -31,7 +31,7 @@
             <RadioButton fx:id="stdRentRadio" layoutX="374.0" layoutY="128.0" mnemonicParsing="false" selected="true" text="Standard" />
             <Label fx:id="rentMethodInfo" layoutX="378.0" layoutY="151.0" prefHeight="117.0" prefWidth="309.0" text="For journey under 10 mitnutes, you are free of charge. The first 30 minutes: VND 10.000. After 30 minutes, for each 15 minutes: VND 3.000" wrapText="true" />
             <Button fx:id="selectBike" layoutX="574.0" layoutY="40.0" mnemonicParsing="false" text="Select" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="64.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="rentBikeImage" fitHeight="150.0" fitWidth="200.0" layoutX="64.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="bikeStatus" layoutX="84.0" layoutY="325.0" text="Status: On">
                <font>
                   <Font size="16.0" />

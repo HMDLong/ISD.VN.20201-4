@@ -30,7 +30,9 @@ public class CaculateFeeV1 implements CaculateFeeInterface {
 
 	@Override
 	public String getInfoRental(String bike) {
-		return "Giá tiền thuê xe là 10000/h.Thuê dưới 10 phút bạn được miễn phí tiền đặt cọc, thuê trên 10 phút bạn phải đặt cọc với số tiền bằng 40% giá trị xe để thuê xe";
+		return "- If you return in under 10 minutes, your rental is free\n"
+			 + "- For the first 30 minutes, you are charged VND 10.000\n"
+			 + "- After 30 minutes, rental fee will be VND 3.000 per minutes";
 	}
 	
 	

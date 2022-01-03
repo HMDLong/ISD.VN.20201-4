@@ -1,5 +1,10 @@
 package entity.payment;
 
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import entity.db.EcoDB;
+
 /**
  * Represent a payment transaction.
  *
@@ -31,5 +36,18 @@ public class PaymentTransaction {
 	 */
 	public String getErrorCode() {
 		return errorCode;
+	}
+	
+	/**
+	 * This method save the transaction to the database.
+	 *
+	 * @param invoice_id the id of invoice associated with the transaction
+	 * @throws SQLException throw if error occurs during query process
+	 */
+	public void saveTransaction(int invoice_id) throws SQLException {
+		Statement stm = EcoDB.getConnection().createStatement();
+		String query = String.format("insert into paymenttransactions(transaction_id, create_at, content, invoice_id) values "
+								   + "('%s', '%s', '%s', %d)", this.transactionId, this.createdAt, this.transactionContent, invoice_id);
+		stm.executeQuery(query);
 	}
 }
