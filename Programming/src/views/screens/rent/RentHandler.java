@@ -30,8 +30,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screens.BaseScreenHandler;
+import views.screens.deposit.DepositHandler;
 import views.screens.dock.DockHandler;
-import views.screens.payment.PaymentHandler;
 import views.screens.viewbike.BikeHandler;
 import views.screens.viewbike.ViewBikeHandler;
 
@@ -99,7 +99,7 @@ public class RentHandler extends BaseScreenHandler implements Initializable {
 		
 		this.confirmBtn.setOnMouseClicked(e -> {
 			try {
-				PaymentHandler payScreen = new PaymentHandler(this.stage, Configs.PAYMENT_PATH, result.get("DEPOSIT"), this.dock);
+				DepositHandler payScreen = new DepositHandler(this.stage, Configs.PAYMENT_PATH, result.get("DEPOSIT"), this.dock);
 				payScreen.setBaseController(new PaymentController());
 				payScreen.setPreviousScreen(this);
 				payScreen.show();

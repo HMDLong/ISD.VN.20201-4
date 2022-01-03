@@ -1,4 +1,4 @@
-package views.screens.payment;
+package views.screens.deposit;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import utils.Utils;
 import views.screens.BaseScreenHandler;
 
-public class PaymentHandler extends BaseScreenHandler implements Initializable {
+public class DepositHandler extends BaseScreenHandler implements Initializable {
 	@FXML
 	private TextField ownerField, cardNumField, expiryField, cvvField;
 	
@@ -34,7 +34,7 @@ public class PaymentHandler extends BaseScreenHandler implements Initializable {
 	
 	private Dock dock;
 
-	public PaymentHandler(Stage stage, String screenPath, String deposit, Dock dock) throws IOException {
+	public DepositHandler(Stage stage, String screenPath, String deposit, Dock dock) throws IOException {
 		super(stage, screenPath);
 		this.depositRentBike.setText("Deposit: " + Utils.getCurrencyFormat(Integer.parseInt(deposit)));
 		this.okeBtn.setOpacity(0);

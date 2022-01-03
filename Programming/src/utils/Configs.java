@@ -42,5 +42,5 @@ public class Configs {
 	// Database configuration: dev environment only
 	public static final String DB_URL = "jdbc:postgresql://localhost:5432/ecobike";
 	public static final String DB_USERNAME = "postgres";
-	public static final String DB_PASSWORD = "longkkrr14";
+	public static final String DB_PASSWORD = "robinhieu2310";
 }
