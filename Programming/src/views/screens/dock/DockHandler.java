@@ -1,12 +1,9 @@
 package views.screens.dock;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import entity.dock.Dock;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -54,10 +51,12 @@ public class DockHandler extends FXMLScreenHandler {
   }
   
   public void displayDock() {
+	// setup labels
     this.dockNameLabel.setText(dock.getName());
     this.addressLabel.setText("Address: " + dock.getAddress());
     this.emptySlotLabel.setText("Empty: " + (dock.getMaxSlot() - dock.getAvaiSlot()));
     this.availableLabel.setText("Available: " + dock.getAvaiSlot());
+    // setup button
     this.toDockBtn.setOnMouseClicked(e -> {
       try {
         MenuHandler dockMenu = new MenuHandler(this.homeScreen.getStage(), Configs.DOCK_MENU_PATH, this.dock);

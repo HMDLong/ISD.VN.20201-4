@@ -84,10 +84,11 @@ public class Bike {
 		info.put("IMAGE_URL", imageURL);
 		return info;
 	}
+	
 	/**
 	 * This method get for all bike in material dock.
 	 *
-	 * @param dockId
+	 * @param dockId the id to of the dock to view bikes
 	 * @return ArrayList<Dock> list of result bike
 	 * @throws SQLException throws if error occurs during query
 	 */
@@ -109,9 +110,9 @@ public class Bike {
 	public static Bike getBikeByBikecode(String bikecode, int dock_id) throws SQLException {
 	  Bike bike = null;
 	  Statement stm = EcoDB.getConnection().createStatement();
-	  String query = String.format("select id, type_name, deposit, bike_code, image_url, battery, remain_time "
-	               + "from ((select * from bikes where dock_id = %d and bike_code = '%s') as alias1 left join ebikes using (id))"
-	               + " join biketypes using (type_id);", dock_id, bikecode);
+	  String query = String.format("select id, type_name, deposit, bike_code, image_url, battery, remain_time"
+	               + " from ((select * from bikes where dock_id = %d and bike_code = '%s') as alias1 left join ebikes using (id))"
+	               + " join biketypes using (type_id);", dock_id, bikecode.substring(0, 4));
 	  ResultSet res = stm.executeQuery(query);
 	  if(res.next()) {
 	    bike = BikeFactory.getFactory().create(res);

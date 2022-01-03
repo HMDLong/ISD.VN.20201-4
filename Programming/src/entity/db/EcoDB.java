@@ -8,6 +8,7 @@ import java.util.Date;
 import entity.bike.Bike;
 import entity.bike.Ebike;
 import entity.invoice.Invoice;
+import utils.Configs;
 
 /**
  * Responsible for connection to database.
@@ -26,7 +27,7 @@ public class EcoDB {
     }
     try {
       Class.forName("org.postgresql.Driver");
-      conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ecobike", "postgres", "robinhieu2310");
+      conn = DriverManager.getConnection(Configs.DB_URL, Configs.DB_USERNAME, Configs.DB_PASSWORD);
       System.out.println("Connect to database successfully");
     } catch(Exception e) {
       e.printStackTrace();

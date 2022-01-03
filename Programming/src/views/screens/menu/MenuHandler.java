@@ -1,5 +1,6 @@
 package views.screens.menu;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screens.BaseScreenHandler;
@@ -31,6 +34,9 @@ public class MenuHandler extends BaseScreenHandler implements Initializable{
 	@FXML
 	private Label dockAddressLabel, dockAreaLabel, distanceLabel, walktimeLabel, dockNameLabel;
 	
+	@FXML
+	private ImageView dockImage;
+	
 	private Dock dock;
 	
 	public MenuHandler(Stage stage, String screenPath, Dock dock) throws IOException {
@@ -41,6 +47,10 @@ public class MenuHandler extends BaseScreenHandler implements Initializable{
 		this.distanceLabel.setText("100m");
 		this.walktimeLabel.setText("10 min");
 		this.dockNameLabel.setText(dock.getName());
+	    // setup image
+	    File file = new File(this.dock.getImageUrl());
+	    Image img = new Image(file.toURI().toString());
+	    dockImage.setImage(img);
 	}
 
 	@Override
