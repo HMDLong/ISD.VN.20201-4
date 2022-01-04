@@ -12,6 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * The entry point of the software.
+ *
+ * @author Admin
+ *
+ */
 public class App extends Application {
 	
 	@Override

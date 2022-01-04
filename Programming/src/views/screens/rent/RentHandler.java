@@ -3,22 +3,12 @@ package views.screens.rent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import common.exception.EmptyDockException;
-import common.exception.InvalidSearchKeyException;
-import common.exception.NoResultException;
-import controller.HomeController;
 import controller.PaymentController;
 import controller.RentBikeController;
-import controller.ViewBikeController;
-import controller.search.SearchDockByNameController;
 import entity.dock.Dock;
-import factory.handler.BikeHandlerFactory;
-import entity.bike.Bike;
-import entity.bike.Ebike;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.fxml.Initializable;
@@ -31,9 +21,6 @@ import javafx.stage.Stage;
 import utils.Configs;
 import views.screens.BaseScreenHandler;
 import views.screens.deposit.DepositHandler;
-import views.screens.dock.DockHandler;
-import views.screens.viewbike.BikeHandler;
-import views.screens.viewbike.ViewBikeHandler;
 
 public class RentHandler extends BaseScreenHandler implements Initializable {
 	

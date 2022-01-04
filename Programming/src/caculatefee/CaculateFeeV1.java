@@ -3,7 +3,8 @@ package caculatefee;
 import entity.bike.Bike;
 
 /**
- * 
+ * This class implement the standard rental method.
+ *
  * @author Admin
  *
  */

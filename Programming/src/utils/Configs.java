@@ -16,10 +16,7 @@ public class Configs {
 	public static final String INVOICE_PATH = "/views/fxml/payment_invoice.fxml";
 	public static final String PAYMENT_PATH = "/views/fxml/payment.fxml";
 	
-	// image resources path
-	public static final String DOCK_IMAGE_PATH = "assets/docks";
-	
-	// api constants
+	// API constants
 	public static final String GET_BALANCE_URL = "https://ecopark-system-api.herokuapp.com/api/card/balance/118609_group1_2020";
 	public static final String GET_VEHICLECODE_URL = "https://ecopark-system-api.herokuapp.com/api/get-vehicle-code/1rjdfasdfas";
 	public static final String PROCESS_TRANSACTION_URL = "https://ecopark-system-api.herokuapp.com/api/card/processTransaction";

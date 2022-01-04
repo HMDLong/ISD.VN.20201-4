@@ -9,8 +9,9 @@ import controller.BaseController;
 import entity.dock.Dock;
 
 /**
- * This class controls the flow of events in homescreen
- * @author Admin
+ * This class is the search engine to search for dock.
+ *
+ * @author Group4
  *
  */
 public abstract class SearchDockController extends BaseController {
